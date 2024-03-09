@@ -1,6 +1,7 @@
 <?php
 
-enum Role : int
+namespace App\Enums;
+enum Role: int
 {
     case superAdmin = 1;
     case admin = 2;
