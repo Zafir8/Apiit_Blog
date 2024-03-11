@@ -1,8 +1,10 @@
 <header class="flex items-center justify-between py-3 px-6 border-b border-gray-100">
     <div id="header-left" class="flex items-center">
         <div class="text-gray-800 font-semibold">
-            <!-- Logo from the internet -->
-            <img src="https://apiit.lk/wp-content/uploads/2023/05/apiit-logo_Courses.png" alt="Logo" class="h-10 w-auto">
+            <!-- Link the logo to the 'home' route -->
+            <a href="{{ route('home') }}">
+                <img src="https://apiit.lk/wp-content/uploads/2023/05/apiit-logo_Courses.png" alt="Logo" class="h-10 w-auto">
+            </a>
         </div>
         <div class="top-menu ml-10">
             <ul class="flex space-x-4">
