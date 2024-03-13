@@ -38,6 +38,7 @@
                 </x-dropdown-link>
             @endif
 
+
             <div class="border-t border-gray-200"></div>
 
             <!-- Authentication -->

@@ -10,6 +10,7 @@
                 Reading</a>
         </div>
     @endsection
+    
 
     <div class="mb-10 w-full">
         <div class="mb-16">

@@ -15,18 +15,25 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('home');
-//});
-
 Route::get('/', HomeController::class)->name('home');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
+//    'auth.revert',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
 });
+
+
+
+
+Route::fallback(function ($route) {
+    if (str_starts_with($route, 'dashboard')) {
+        return redirect()->route('home');
+    }
+});
+
