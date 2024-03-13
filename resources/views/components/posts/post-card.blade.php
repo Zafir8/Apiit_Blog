@@ -18,3 +18,4 @@
         <a href="#" class="text-xl font-bold text-gray-900">{{ $post->title }}</a>
     </div>
 </div>
+
