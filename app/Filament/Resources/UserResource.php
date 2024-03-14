@@ -32,10 +32,16 @@ class UserResource extends Resource
                     ->required()
                     ->placeholder(''),
                 Forms\Components\TextInput::make('password'),
-                Forms\Components\DateTimePicker::make('email_verified_at')
-                    ->label('Email Verified At')
+                Forms\Components\MultiSelect::make('roles')
+                    ->label('Roles')
+                    ->options([
+                        'admin' => 'Admin',
+                        'staff' => 'Staff',
+                        'student' => 'Student',
+                    ])
                     ->required()
                     ->placeholder(''),
+
             ]);
     }
 
@@ -46,21 +52,26 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
-//                Tables\Columns\Text::make('email')
-//                    ->searchable()
-//                    ->sortable(),
-//                Tables\Columns\Text::make('email_verified_at')
-//                    ->searchable()
-//                    ->sortable(),
-//                Tables\Columns\Text::make('created_at')
-//                    ->searchable()
-//                    ->sortable(),
-//                Tables\Columns\Text::make('updated_at')
-//                    ->searchable()
-//                    ->sortable(),
-//                Tables\Columns\Text::make('deleted_at')
-//                    ->searchable()
-//                    ->sortable(),
+                Tables\Columns\TextColumn::make('email')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('email_verified_at')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\SelectColumn::make('role')
+                    ->options([
+                        'admin' => 'Admin',
+                        'staff' => 'Staff',
+                        'student' => 'Student',
+                    ])
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //
