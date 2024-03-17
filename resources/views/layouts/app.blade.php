@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon"/>
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -17,9 +18,18 @@
 
     <!-- Styles -->
     @livewireStyles
+
+    <style>
+        #preloader {
+            transition: opacity 1s ease-out; /* Adjust the duration as needed */
+        }
+    </style>
 </head>
 
 <body class="font-sans antialiased">
+<div id="preloader" class="fixed inset-0 bg-white flex justify-center items-center z-50">
+    <img src="{{ asset('images/logo.png') }}" alt="Loading..." class="w-50">
+</div>
 <x-banner />
 
 @include('layouts.partials.header')
@@ -34,6 +44,17 @@
 
 @stack('modals')
 @livewireScripts
+
+<script>
+    window.addEventListener('load', function() {
+        var preloader = document.getElementById('preloader');
+        preloader.style.opacity = '0';
+        preloader.addEventListener('transitionend', function() {
+            preloader.remove();
+        });
+    });
+
+</script>
 </body>
 
 </html>
