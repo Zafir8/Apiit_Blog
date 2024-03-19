@@ -1,21 +1,18 @@
 @props(['post'])
 
-<div {{ $attributes }}>
-    <a href="#">
-        <div>
-            <img class="w-full rounded-xl" src="{{ $post->getThumbnailUrl() }}">
-        </div>
+<div {{ $attributes->class('bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 ease-in-out') }}>
+    <a href="#" class="block overflow-hidden">
+        <img class="w-full transform hover:scale-105 transition-transform duration-300 ease-in-out" src="{{ $post->getThumbnailUrl() }}" alt="Post Thumbnail" style="height: 200px; object-fit: cover;">
     </a>
-    <div class="mt-3">
-        <div class="flex items-center mb-2 gap-x-2">
+    <div class="p-5">
+        <div class="flex items-center justify-between mb-4">
             @if ($category = $post->categories()->first())
-                <x-badge wire:navigate href="{{ route('posts.index', ['category' => $category->slug]) }}"
-                         :textColor="$category->text_color" :bgColor="$category->bg_color">
+                <a href="{{ route('posts.index', ['category' => $category->slug]) }}" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium leading-5 shadow-sm" style="background-color: {{ $category->bg_color }}; color: {{ $category->text_color }};">
                     {{ $category->title }}
-                </x-badge>
+                </a>
             @endif
-            <p class="text-gray-500 text-sm">{{ $post->published_at }}</p>
+            <p class="text-sm text-gray-400">{{ $post->published_at->format('M d, Y') }}</p>
         </div>
-        <a href="#" class="text-xl font-bold text-gray-900">{{ $post->title }}</a>
+        <a href="#" class="block text-lg font-semibold text-gray-900 hover:text-primary-500">{{ $post->title }}</a>
     </div>
 </div>
