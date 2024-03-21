@@ -2,7 +2,7 @@
 
 @section('hero')
         <div class="h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/3807755/pexels-photo-3807755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
-            <h1 class="text-white font-bold text-5xl">Our blogs</h1>
+            <h1 class="text-white font-bold text-5xl">Our blogs XXX</h1>
         </div>
     @endsection
 
