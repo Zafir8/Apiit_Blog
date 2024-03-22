@@ -17,31 +17,22 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->label('Name')
                     ->required()
-                    ->placeholder('John Doe'),
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('email')
-                    ->label('Email')
+                    ->email()
                     ->required()
-                    ->placeholder(''),
-                Forms\Components\TextInput::make('password'),
-                Forms\Components\MultiSelect::make('roles')
-                    ->label('Roles')
-                    ->options([
-                        'admin' => 'Admin',
-                        'staff' => 'Staff',
-                        'student' => 'Student',
-                    ])
-                    ->required()
-                    ->placeholder(''),
-
+                    ->maxLength(255),
+                Forms\Components\Select::make('role')
+                    ->options(User::ROLES)
+                    ->required(),
             ]);
     }
 
@@ -50,28 +41,19 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable()
-                    ->sortable(),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('email')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('email_verified_at')
-                    ->searchable()
-                    ->sortable(),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->searchable()
-                    ->sortable(),
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\SelectColumn::make('role')
-                    ->options([
-                        'admin' => 'Admin',
-                        'staff' => 'Staff',
-                        'student' => 'Student',
-                    ])
-                    ->searchable()
-                    ->sortable(),
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('role')
+                    ->searchable(),
             ])
             ->filters([
                 //

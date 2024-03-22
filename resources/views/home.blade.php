@@ -17,12 +17,11 @@
 
                 <!-- Text Container -->
                 <div class="flex-1 text-lg text-gray-700">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>The Asia Pacific Institute of Information Technology (APIIT) Sri Lanka is a leading private higher education institution in Sri Lanka. We offer internationally recognized degrees in Business, Computing/IT, and Law.</p>
                 </div>
             </div>
         </div>
     @endsection
-
 
 
     <div class="mb-10 w-full">
@@ -35,9 +34,6 @@
                     @endforeach
                 </div>
             </div>
-            <a class="mt-10 block text-center text-lg text-blue-950 font-semibold"
-               href="http://127.0.0.1:8000/blog">More
-                Posts</a>
         </div>
         <hr>
 
@@ -49,7 +45,7 @@
                 @endforeach
             </div>
         </div>
-        <a class="mt-10 block text-center text-lg text-blue-950 font-semibold" href="http://127.0.0.1:8000/blog">More
+        <a class="mt-10 block text-center text-lg text-blue-950 font-semibold" href="{{ route('posts.index') }}">More
             Posts</a>
     </div>
 

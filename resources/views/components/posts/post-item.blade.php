@@ -1,38 +1,35 @@
-<article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow transition-shadow duration-300 ease-in-out [&:not(:last-child)]:border-b border-gray-100 pb-10">
-    <div class="grid items-start grid-cols-1 md:grid-cols-12 gap-4 mt-5 p-4 md:p-6 article-body">
-        <div class="md:col-span-4 article-thumbnail flex justify-center">
-            <a href="#" class="block w-full max-w-sm">
-                <img class="mx-auto rounded-lg transition-transform duration-300 ease-in-out hover:scale-105" src="{{ $post->getThumbnailUrl() }}" alt="thumbnail">
+@props(['post'])
+<article class="border-b border-gray-100 pb-10 last:border-b-0">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-5 article-body">
+        <div class="lg:col-span-4">
+            <a href="{{ route('posts.show', $post->slug) }}" class="block hover:opacity-95 transition-opacity duration-200 ease-in-out">
+                <img class="rounded-lg mx-auto shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out" src="{{ $post->getThumbnailUrl() }}" alt="thumbnail">
             </a>
         </div>
-        <div class="md:col-span-8">
-            <div class="flex items-center py-1 text-sm gap-x-2 article-meta">
-                <img class="mr-3 rounded-full w-8 h-8" src="{{ $post->author->profile_photo_url }}" alt="{{ $post->author->name }}">
-                <div>
-                    <span class="font-medium text-gray-900">{{ $post->author->name }}</span>
-                    <span class="text-xs text-gray-500 block">{{ $post->published_at->diffForHumans() }}</span>
-                </div>
+        <div class="lg:col-span-8">
+            <div class="flex items-center py-1 text-xs lg:text-sm text-gray-500 mb-2">
+                <x-posts.author :author="$post->author" size="xs" class="mr-2"/>
+                <span>{{ $post->published_at->diffForHumans() }}</span>
             </div>
-            <h2 class="mt-2 text-2xl font-bold text-gray-900 hover:text-primary-500">
-                <a href="#">
+            <h2 class="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+                <a href="{{ route('posts.show', $post->slug) }}" class="hover:text-blue-600 transition-colors duration-200 ease-in-out">
                     {{ $post->title }}
                 </a>
             </h2>
-            <p class="mt-3 text-base font-normal text-gray-700">
+            <p class="text-gray-700 mb-4">
                 {{ $post->getExcerpt() }}
             </p>
-            <div class="mt-6 flex items-center justify-between flex-wrap gap-2 article-actions-bar">
-                @foreach ($post->categories as $category)
-                    <a href="{{ route('posts.index', ['category' => $category->slug]) }}" class="px-3 py-1 rounded-full text-sm font-medium leading-5 shadow-sm" style="background-color: {{ $category->bg_color }}; color: {{ $category->text_color }};">
-                        {{ $category->title }}
-                    </a>
-                @endforeach
-                <span class="text-sm text-gray-500">{{ $post->getReadingTime() }} min read</span>
+            <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex flex-wrap gap-2">
+                    @foreach ($post->categories as $category)
+                        <x-posts.category-badge :category="$category" class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full" />
+                    @endforeach
+                    <span class="text-gray-500 text-xs lg:text-sm">{{ $post->getReadingTime() }} min read</span>
+                </div>
                 <div>
-                    <livewire:like-button :key="$post->id" :post="$post" />
+                    <livewire:like-button :key="$post->id" :$post class="hover:text-blue-500 transition-colors duration-200 ease-in-out"/>
                 </div>
             </div>
         </div>
     </div>
 </article>
-

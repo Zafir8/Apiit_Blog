@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'SuperAdmin',
             'email' => 'super_admin@apiit.lk',
             'password' => bcrypt('admin'),
-            'role' => 1,
+            'role' => 'ADMIN',
         ]);
     }
 }

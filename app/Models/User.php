@@ -4,15 +4,17 @@ namespace App\Models;
 
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-use App\Enums\Role;
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens;
     use HasFactory;
@@ -25,6 +27,36 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    const ROLE_ADMIN = 'ADMIN';
+    const ROLE_BLOGGER = 'BLOGGER';
+
+    const ROLE_USER = 'USER';
+
+
+    const ROLES= [
+        self::ROLE_ADMIN => 'Admin',
+        self::ROLE_BLOGGER => 'Blogger',
+        self::ROLE_USER => 'User',
+    ];
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->isAdmin() || $this->isBlogger();
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === self::ROLE_ADMIN;
+
+    }
+
+    public function isBlogger()
+    {
+        return $this->role === self::ROLE_BLOGGER;
+
+    }
+
     protected $fillable = [
         'name',
         'email',
@@ -54,7 +86,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'role' => Role::class,
     ];
 
     /**

@@ -13,7 +13,7 @@ class PostPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return  $user-> isAdmin() || $user->isBlogger();
     }
 
     /**
@@ -21,7 +21,7 @@ class PostPolicy
      */
     public function view(User $user, Post $post): bool
     {
-        return true;
+        return $user -> isAdmin() || $user->isBlogger();
     }
 
     /**
@@ -29,7 +29,7 @@ class PostPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user -> isAdmin() || $user->isBlogger();
     }
 
     /**
@@ -37,7 +37,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post): bool
     {
-        return true;
+        return $user -> isAdmin() || $user->isBlogger();
     }
 
     /**
@@ -45,7 +45,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post): bool
     {
-        return $user->role === 'admin';
+        return $user -> isAdmin();
     }
 
     /**
@@ -53,7 +53,7 @@ class PostPolicy
      */
     public function restore(User $user, Post $post): bool
     {
-        return $user->role === 'admin';
+        return $user-> isAdmin();
     }
 
     /**
@@ -61,6 +61,30 @@ class PostPolicy
      */
     public function forceDelete(User $user, Post $post): bool
     {
-        return $user->role === 'admin';
+        return $user-> isAdmin();
     }
+
+//    bulk delete disable
+
+    public function deleteAny(User $user): bool
+    {
+        return $user -> isAdmin();
+    }
+
+
+    /**
+     * Determine whether the user can permanently delete the model.
+     */
+    public function forceDeleteAny(User $user): bool
+    {
+        return $user-> isAdmin();
+    }
+
+    public function restoreAny(User $user): bool
+    {
+        return $user-> isAdmin();
+    }
+
+
 }
+
