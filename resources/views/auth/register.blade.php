@@ -9,7 +9,7 @@
         <!-- Toggle Button for Alumni Form -->
         <div class="flex justify-end mb-4">
             <button type="button" id="toggleAlumniForm" class="px-4 py-2 text-white bg-black hover:bg-gray-500 rounded-md focus:outline-none">
-                Alumni
+                Alumni Sign up
             </button>
         </div>
 
