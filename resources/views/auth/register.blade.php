@@ -89,7 +89,7 @@
     document.getElementById('toggleAlumniForm').addEventListener('click', function() {
         var alumniFields = document.getElementById('alumniFields');
         var isAlumniInput = document.getElementById('is_alumni');
-        document.getElementById('toggleAlumniForm').innerText = isAlumniInput.value === '0' ? 'Student' : 'Alumni';
+        document.getElementById('toggleAlumniForm').innerText = isAlumniInput.value === '0' ? 'Student/Staff Sign up' : 'Alumni Sign up';
 
 
 
