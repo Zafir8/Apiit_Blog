@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
-use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
 use Filament\Forms;
 use Filament\Forms\Components\Checkbox;
@@ -21,85 +20,91 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use function Laravel\Prompts\search;
 
 class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                Section::make('Main Content')->schema(
-                    [
-                        TextInput::make('title')
-                            ->live()
-                            ->required()->minLength(1)->maxLength(150)
-                            ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
-                                if ($operation === 'edit') {
-                                    return;
-                                }
-
-                                $set('slug', Str::slug($state));
-                            }),
-                        TextInput::make('slug')->required()->minLength(1)->unique(ignoreRecord: true)->maxLength(150),
-                        RichEditor::make('body')
-                            ->required()
-                            ->fileAttachmentsDirectory('posts/images')->columnSpanFull()
-                    ]
-                )->columns(2),
-                Section::make('Meta')->schema(
-                    [
-                        FileUpload::make('image')->image()->directory('posts/thumbnails'),
-                        DateTimePicker::make('published_at')->nullable(),
-                        Checkbox::make('featured'),
-                        Select::make('user_id')
-                            ->relationship('author', 'name')
-                            ->searchable()
-                            ->required(),
-                        Select::make('categories')
-                            ->multiple()
-                            ->relationship('categories', 'title')
-                            ->searchable(),
-                    ]
-                ),
-            ]);
+        return $form->schema([
+            Section::make('Main Content')->schema([
+                TextInput::make('title')
+                    ->required()
+                    ->minLength(1)
+                    ->maxLength(150)
+                    ->live()
+                    ->afterStateUpdated(fn ($state, $set) => $set('slug', Str::slug($state))),
+                TextInput::make('slug')
+                    ->required()
+                    ->minLength(1)
+                    ->maxLength(150)
+                    ->unique(Post::class, 'slug', fn ($record) => $record),
+                RichEditor::make('body')
+                    ->required()
+                    ->fileAttachmentsDirectory('posts/images')
+                    ->columnSpanFull(),
+            ])->columns(2),
+            Section::make('Meta')->schema([
+                FileUpload::make('image')
+                    ->image()
+                    ->directory('posts/thumbnails'),
+                DateTimePicker::make('published_at')
+                    ->nullable(),
+                Checkbox::make('featured'),
+                Select::make('user_id')
+                    ->relationship('author', 'name')
+                    ->options([Auth::id() => Auth::user()->name])
+                    ->searchable() // This is a new method that is not available in the official documentation
+                    ->default(Auth::id())
+                    ->required(),
+                Select::make('categories')
+                    ->multiple()
+                    ->relationship('categories', 'title')
+                    ->searchable(),
+            ]),
+        ]);
     }
 
     public static function table(Table $table): Table
     {
-        return $table
-            ->columns([
-                ImageColumn::make('image'),
-                TextColumn::make('title')->sortable()->searchable(),
-                TextColumn::make('slug')->sortable()->searchable(),
-                TextColumn::make('author.name')->sortable()->searchable(),
-                TextColumn::make('published_at')->date('Y-m-d')->sortable()->searchable(),
-                CheckboxColumn::make('featured'),
-            ])
-            ->filters([
-                Tables\Filters\TrashedFilter::make(),
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
-                    Tables\Actions\RestoreBulkAction::make(),
-                ]),
-            ]);
+        return $table->columns([
+            ImageColumn::make('image'),
+            TextColumn::make('title')
+                ->sortable()
+                ->searchable(),
+            TextColumn::make('slug')
+                ->sortable()
+                ->searchable(),
+            TextColumn::make('author.name')
+                ->sortable()
+                ->searchable(),
+            TextColumn::make('published_at')
+                ->date('Y-m-d')
+                ->sortable()
+                ->searchable(),
+            CheckboxColumn::make('featured'),
+        ])->filters([
+            Tables\Filters\TrashedFilter::make(),
+        ])->actions([
+            Tables\Actions\EditAction::make(),
+        ])->bulkActions([
+            Tables\Actions\BulkActionGroup::make([
+                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\RestoreBulkAction::make(),
+                Tables\Actions\ForceDeleteBulkAction::make(),
+            ]),
+        ]);
     }
 
     public static function getRelations(): array
     {
         return [
-            //
+            // Define your relations here if any
         ];
     }
 
@@ -114,9 +119,12 @@ class PostResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
+        $query = parent::getEloquentQuery();
+
+        if (!Auth::user()->isAdmin()) {
+            $query->where('user_id', Auth::id());
+        }
+
+        return $query;
     }
 }
