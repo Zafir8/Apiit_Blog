@@ -37,6 +37,5 @@ Route::middleware([
 
 
 
-// hello
 
 
