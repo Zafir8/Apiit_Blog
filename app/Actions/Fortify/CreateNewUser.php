@@ -3,9 +3,9 @@
 namespace App\Actions\Fortify;
 
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str; // Make sure to import Str
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
 use App\Rules\EmailDomainRule;
@@ -42,6 +42,17 @@ class CreateNewUser implements CreatesNewUsers
                 'required_if:is_alumni,1',
                 function ($attribute, $value, $fail) {
                     if (!empty($value)) {
+                        // Check if NIC_or_passport exists in the allowed_users table for alumni
+                        if (request()->input('is_alumni') == '1') {
+                            $allowedUserExists = DB::table('allowed_users')
+                                ->where('NIC_or_passport', $value)
+                                ->exists();
+
+                            if (!$allowedUserExists) {
+                                $fail('The NIC or Passport number is not recognized.');
+                            }
+                        }
+
                         // NIC validation: 12 digits
                         if (is_numeric($value) && strlen($value) == 12) {
                             return true;
@@ -55,7 +66,6 @@ class CreateNewUser implements CreatesNewUsers
                     }
                 },
             ],
-            // Add any additional fields you need to validate here
         ])->validate();
 
         return User::create([
@@ -63,7 +73,6 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             'school' => $input['school'],
-            // Handle the NIC or Passport only for alumni
             'nic_or_passport' => request()->input('is_alumni') == '1' ? $input['nic_or_passport'] ?? null : null,
         ]);
     }
