@@ -70,6 +70,5 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'auth.revert' => \App\Http\Middleware\RedirectToHomeIfDashboard::class,
         'access.filament' => \App\Http\Middleware\EnsureUserCanAccessFilament::class,
-        'EnsureEmailIsVerified' => \App\Http\Middleware\EnsureEmailIsVerifiedMiddleware::class,
     ];
 }
