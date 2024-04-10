@@ -19,6 +19,8 @@ use App\Http\Controllers\PostController;
 Route::get('/', HomeController::class)->name('home');
 Route::get('/blog', [PostController::class, 'index'])->name('posts.index');
 Route::get('/blog/{post:slug}', [PostController::class, 'show'])->name('posts.show');
+Route::post('/posts/{id}/approve', [PostController::class, 'approve'])->middleware('auth');
+
 
 
 
