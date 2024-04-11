@@ -131,6 +131,11 @@ class PostResource extends Resource
             $query->where('is_approved', true);
         }
 
+
+        if (!Auth::user()->isAdmin()) {
+            $query->where('user_id', Auth::id());
+        }
+
         return $query;
     }
 }
