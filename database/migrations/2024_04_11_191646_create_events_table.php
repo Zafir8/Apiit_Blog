@@ -20,6 +20,7 @@ return new class extends Migration
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->timestamp('published_at')->nullable();
+            $table->boolean('featured')->default(false);
             $table->string('location');
             $table->string('image')->nullable();
             $table->string('slug')->unique();

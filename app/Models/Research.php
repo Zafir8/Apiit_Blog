@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
 
-class Event extends Model
+class Research extends Model
 {
     use HasFactory;
 
