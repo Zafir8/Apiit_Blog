@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->string('title');
+            $table->string('slug')->unique();
             $table->longText('description');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
@@ -23,7 +24,8 @@ return new class extends Migration
             $table->boolean('featured')->default(false);
             $table->string('location');
             $table->string('image')->nullable();
-            $table->string('slug')->unique();
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }
