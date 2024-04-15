@@ -7,6 +7,7 @@ use Livewire\Attributes\Computed;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Auth;
 
 class PostComments extends Component
 {
@@ -19,15 +20,15 @@ class PostComments extends Component
 
     public function postComment()
     {
-        if (auth()->guest()) {
-            return;
+        if (Auth::guest()) {
+            return redirect()->route('login'); // Redirect to login page
         }
 
         $this->validateOnly('comment');
 
         $this->post->comments()->create([
             'comment' => $this->comment,
-            'user_id' => auth()->id()
+            'user_id' => Auth::id()
         ]);
 
         $this->reset('comment');

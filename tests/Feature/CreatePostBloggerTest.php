@@ -3,29 +3,36 @@
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Auth;
 
 uses(RefreshDatabase::class);
 
-it('allows a blogger to submit a post and an admin to approve it', function () {
-    // Create a blogger user
+it('allows an admin to approve a post', function () {
+    // Create a user with admin role
+    $admin = User::factory()->create(['role' => 'ADMIN']);
+    // Create a user with blogger role
     $blogger = User::factory()->create(['role' => 'BLOGGER']);
 
-    // Create an admin user
-    $admin = User::factory()->create(['role' => 'ADMIN']);
+    // Log in as the blogger
+    Auth::login($blogger);
 
-    // Blogger submits a post
+    // Create a new post
     $post = Post::factory()->create([
         'user_id' => $blogger->id,
-        'is_approved' => false, // Post is not approved initially
+        'is_approved' => false, // The post is not approved initially
     ]);
 
-    // Simulate admin approval
-    $post->is_approved = true;
-    $post->save();
+    // Log in as the admin
+    Auth::login($admin);
 
-    // Refresh the post instance to ensure we're working with the latest data
-    $post = $post->fresh();
+    // Approve the post
+    $response = $this->post('/posts/' . $post->id . '/approve');
 
-    // Assert that the post is now approved
+    // Assert the post is now approved
+    $post->refresh();
     expect($post->is_approved)->toBeTrue();
+
+    // Optionally, you can also assert the response status code
+    $response->assertStatus(200);
 });
