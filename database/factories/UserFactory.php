@@ -32,6 +32,11 @@ class UserFactory extends Factory
             'current_team_id' => null,
             'school' => $this->faker->company(),
             'nic_or_passport' => null,
+            'cb_number' => null,
+            'degree' => null,
+            'level' => null,
+            'user_type' => 'student',
+            'role' => 'USER',
         ];
     }
 

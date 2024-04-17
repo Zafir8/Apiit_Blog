@@ -7,30 +7,33 @@ use Illuminate\Contracts\Validation\Rule;
 class EmailDomainRule implements Rule
 {
     protected $allowedDomains;
-    protected $enforceDomainRestriction;
+    protected $userType;
 
-    public function __construct($allowedDomains, $enforceDomainRestriction = true)
+    public function __construct(array $allowedDomains, string $userType)
     {
         $this->allowedDomains = $allowedDomains;
-        $this->enforceDomainRestriction = $enforceDomainRestriction;
+        $this->userType = $userType;
     }
 
     public function passes($attribute, $value)
     {
-        // If domain restriction enforcement is turned off, automatically pass validation
-        if (!$this->enforceDomainRestriction) {
+        // If all domains are allowed for alumni, return true
+        if ($this->userType === 'alumni' && in_array('*', $this->allowedDomains)) {
             return true;
         }
 
-        // Extract the domain from the email address
-        $emailDomain = explode('@', $value)[1] ?? null;
-
-        // Check if the domain is in the allowed list
+        // Otherwise, check the domain against allowed domains
+        $emailDomain = substr(strrchr($value, "@"), 1);
         return in_array($emailDomain, $this->allowedDomains);
     }
 
-    public function message(): string
+    public function message()
     {
-        return 'You are not allowed to register with this email domain. Please use APIIT email addresses only. If you are an alumnus, please press the button above ';
+        return match ($this->userType) {
+            'student' => 'Students must use an email ending with @students.apiit.lk.',
+            'staff' => 'Staff must use an email ending with @apiit.lk.',
+            'alumni' => 'Alumni can use any email, but NIC or passport verification is required.',
+            default => 'Invalid email domain for the selected user type.'
+        };
     }
 }
