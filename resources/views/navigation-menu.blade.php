@@ -236,6 +236,12 @@
                 <x-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                     {{ __('Blogs') }}
                 </x-nav-link>
+                <x-nav-link href="{{ route('events.index') }}" :active="request()->routeIs('events.index')">
+                    {{ __('Events') }}
+                </x-nav-link>
+                <x-nav-link href="{{ route('research.index') }}" :active="request()->routeIs('research.index')">
+                    {{ __('Research') }}
+                </x-nav-link>
             </div>
         </div>
     </div>
