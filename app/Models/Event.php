@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Illuminate\Support\Facades\Storage;
 
 
 class Event extends Model
@@ -15,6 +15,12 @@ class Event extends Model
 
    protected $fillable = [
         'user_id', 'title', 'slug', 'description', 'start_date', 'end_date', 'published_at', 'featured', 'location', 'image',
+    ];
+
+    protected $casts = [
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
+        'published_at' => 'datetime',
     ];
 
     public function author()
@@ -31,4 +37,11 @@ class Event extends Model
     {
         $query->where('featured', true);
     }
+
+    public function getThumbnailUrl()
+    {
+        $isUrl = str_contains($this->image, 'http');
+        return ($isUrl) ? $this->image : Storage::disk('public')->url($this->image);
+    }
+
 }
