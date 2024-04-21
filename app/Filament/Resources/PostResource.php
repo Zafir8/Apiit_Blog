@@ -17,6 +17,7 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Select;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Builder;
@@ -29,22 +30,55 @@ class PostResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Section::make('Main Content')->schema([
-                TextInput::make('title')->required()->minLength(1)->maxLength(150)->live()
-                    ->afterStateUpdated(fn ($state, $set) => $set('slug', Str::slug($state))),
-                TextInput::make('slug')->required()->minLength(1)->maxLength(150)
-                    ->unique(Post::class, 'slug', fn ($record) => $record),
-                RichEditor::make('body')->required()->fileAttachmentsDirectory('posts/images')->columnSpanFull(),
-            ])->columns(2),
-            Section::make('Meta')->schema([
-                FileUpload::make('image')->image()->directory('posts/thumbnails'),
-                DateTimePicker::make('published_at')->nullable(),
-                Checkbox::make('featured'),
-                Checkbox::make('is_approved')->label('Approved')->visible(fn () => Auth::user()->isAdmin()),
-                Select::make('user_id')->relationship('author', 'name')->options([Auth::id() => Auth::user()->name])
-                    ->searchable()->default(Auth::id())->required(),
-                Select::make('categories')->multiple()->relationship('categories', 'title')->searchable(),
-            ]),
+            Section::make('Main Content')
+                ->schema([
+                    TextInput::make('title')
+                        ->required()
+                        ->minLength(1)
+                        ->maxLength(150)
+                        ->live()
+                        ->afterStateUpdated(fn ($state, $set) => $set('slug', Str::slug($state))),
+
+                    TextInput::make('slug')
+                        ->required()
+                        ->minLength(1)
+                        ->maxLength(150)
+                        ->unique(Post::class, 'slug', fn ($record) => $record),
+
+                    RichEditor::make('body')
+                        ->required()
+                        ->fileAttachmentsDirectory('posts/images')
+                        ->columnSpanFull(),
+                ])
+                ->columns(2),
+
+            Section::make('Meta')
+                ->schema([
+                    FileUpload::make('image')
+                        ->image()
+                        ->directory('posts/thumbnails'),
+
+                    DateTimePicker::make('published_at')
+                        ->nullable(),
+
+                    Checkbox::make('featured'),
+
+                    Checkbox::make('is_approved')
+                        ->label('Approved')
+                        ->visible(fn () => Auth::user()->isAdmin()),
+
+                    Select::make('user_id')
+                        ->relationship('author', 'name')
+                        ->options([Auth::id() => Auth::user()->name])
+                        ->searchable()
+                        ->default(Auth::id())
+                        ->required(),
+
+                    Select::make('categories')
+                        ->multiple()
+                        ->relationship('categories', 'title')
+                        ->searchable(),
+                ]),
         ]);
     }
 
@@ -52,20 +86,33 @@ class PostResource extends Resource
     {
         return $table->columns([
             ImageColumn::make('image'),
-            TextColumn::make('title')->sortable()->searchable(),
-            TextColumn::make('slug')->sortable()->searchable(),
-            TextColumn::make('author.name')->sortable()->searchable(),
-            TextColumn::make('published_at')->date('Y-m-d')->sortable()->searchable(),
-            CheckboxColumn::make('featured'),
-            CheckboxColumn::make('is_approved')->label('Approved')->sortable()->visible(fn () => Auth::user()->isAdmin()),
-        ])->filters([]) // Example to add filters if necessary
-        ->actions([]) // Example to add actions if necessary
-        ->bulkActions([]); // Example to add bulk actions if necessary
-    }
+            TextColumn::make('title')
+                ->sortable()
+                ->searchable(),
 
-    public static function getRelations(): array
-    {
-        return [];
+            TextColumn::make('slug')
+                ->sortable()
+                ->searchable(),
+
+            TextColumn::make('author.name')
+                ->sortable()
+                ->searchable(),
+
+            TextColumn::make('published_at')
+                ->date('Y-m-d')
+                ->sortable()
+                ->searchable(),
+
+            CheckboxColumn::make('featured'),
+
+            CheckboxColumn::make('is_approved')
+                ->label('Approved')
+                ->sortable()
+                ->visible(fn () => Auth::user()->isAdmin()),
+        ])
+            ->bulkActions([
+                DeleteBulkAction::make(),
+            ]);
     }
 
     public static function getPages(): array

@@ -77,7 +77,6 @@ class EventsResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->label('Image')
                     ->image()
-                    ->required()
                     ->directory('events/images'),
             ]);
     }

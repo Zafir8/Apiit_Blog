@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 
 class Research extends Model
@@ -34,4 +35,12 @@ class Research extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function getThumbnailUrl()
+    {
+        $isUrl = str_contains($this->image, 'http');
+        return ($isUrl) ? $this->image : Storage::disk('public')->url($this->image);
+    }
+
+
 }

@@ -3,7 +3,7 @@
 <div class="">
     <a href="#">
         <div>
-            <img class="w-full rounded-xl" src="{{ $research->image }}">
+            <img class="w-full rounded-xl" src="{{ $research->getThumbnailUrl() }}" alt="{{ $research->title }}">
         </div>
     </a>
     <div class="mt-3">
