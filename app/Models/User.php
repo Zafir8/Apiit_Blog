@@ -3,7 +3,7 @@
 namespace App\Models;
 
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,7 +14,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
 
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable implements FilamentUser, MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -62,6 +62,10 @@ class User extends Authenticatable implements FilamentUser
         'email',
         'password',
         'school',
+        'cb_number',
+        'degree',
+        'level',
+        'user_type',
         'nic_or_passport',
         'role'
 
@@ -107,4 +111,10 @@ class User extends Authenticatable implements FilamentUser
         return $this->likes()->where('post_id', $post->id)->exists();
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }
+

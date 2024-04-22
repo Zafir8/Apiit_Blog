@@ -24,6 +24,7 @@ class CategoryResource extends Resource
 
     public static function form(Form $form): Form
     {
+        // main content for table columns and form fields
         return $form
             ->schema([
                 TextInput::make('title')
@@ -43,7 +44,7 @@ class CategoryResource extends Resource
     }
 
     public static function table(Table $table): Table
-    {
+    { // table columns and actions for the category resource
         return $table
             ->columns([
                 TextColumn::make('title')->sortable()->searchable(),

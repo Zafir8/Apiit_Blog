@@ -16,6 +16,7 @@ class Category extends Model
         'bg_color',
     ];
 
+    // A category can have many posts
     public function posts()
     {
         return $this->belongsToMany(Post::class);

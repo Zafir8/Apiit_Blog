@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ResearchController;
 
 
 /*
@@ -19,6 +21,13 @@ use App\Http\Controllers\PostController;
 Route::get('/', HomeController::class)->name('home');
 Route::get('/blog', [PostController::class, 'index'])->name('posts.index');
 Route::get('/blog/{post:slug}', [PostController::class, 'show'])->name('posts.show');
+Route::post('/posts/{id}/approve', [PostController::class, 'approve'])->middleware('auth');
+Route::get('/events', EventController::class)->name('events.index');
+// research route
+Route::get('/research', ResearchController::class)->name('research.index');
+Route::get('/research/{research:slug}', [ResearchController::class, 'show'])->name('research.show');
+
+
 
 
 
@@ -34,7 +43,6 @@ Route::middleware([
          return view('dashboard');
      })->name('dashboard');
 });
-
 
 
 

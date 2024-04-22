@@ -1,32 +1,17 @@
 <x-app-layout>
 
-@section('hero')
-        <div class="h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/3807755/pexels-photo-3807755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
-            <h1 class="text-white font-bold text-5xl">Our blogs</h1>
-        </div>
-    @endsection
-
-    @section('about')
-        <div class="container mx-auto px-4 py-10">
-            <h2 class="text-3xl text-blue-950 font-bold mb-6">About Us</h2>
-            <div class="flex flex-col md:flex-row items-center gap-8">
-                <!-- Image Container -->
-                <div class="flex-1">
-                    <img src="{{asset("images/apiit.jpg")}}" alt="About Us" class="rounded-lg shadow-md w-full h-auto object-cover max-w-md mx-auto md:mx-0">
-                </div>
-
-                <!-- Text Container -->
-                <div class="flex-1 text-lg text-gray-700">
-                    <p>The Asia Pacific Institute of Information Technology (APIIT) Sri Lanka is a leading private higher education institution in Sri Lanka. We offer internationally recognized degrees in Business, Computing/IT, and Law.</p>
-                </div>
+    @section('hero')
+        <div class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('{{ asset('images/PHOTO-APIIT-01.jpg') }}');">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="relative z-10 text-center">
+                <h1 class="text-white font-bold text-5xl md:text-7xl animate-pulse">Welcome to Connect Space<</h1>
             </div>
         </div>
     @endsection
 
-
     <div class="mb-10 w-full">
         <div class="mb-16">
-            <h2 class="mt-16 mb-5 text-3xl text-blue-950 font-bold">Featured Blogs</h2>
+            <h2 class="mt-16 mb-5 text-3xl font-bold text-white bg-gradient-to-r from-blue-900 to-blue-300 p-2 rounded-lg shadow-lg">Featured Blogs</h2>
             <div class="w-full">
                 <div class="grid grid-cols-3 gap-10 w-full">
                     @foreach ($featuredPosts as $post)
@@ -35,9 +20,9 @@
                 </div>
             </div>
         </div>
-        <hr>
+        <hr class="border-blue-300">
 
-        <h2 class="mt-16 mb-5 text-3xl text-blue-950 font-bold">Latest Blogs</h2>
+        <h2 class="mt-16 mb-5 text-3xl font-bold text-white bg-gradient-to-r from-blue-900 to-blue-300 p-2 rounded-lg shadow-lg">Latest Blogs</h2>
         <div class="w-full mb-5">
             <div class="grid grid-cols-3 gap-10 w-full">
                 @foreach ($latestPosts as $post)
@@ -45,9 +30,7 @@
                 @endforeach
             </div>
         </div>
-        <a class="mt-10 block text-center text-lg text-blue-950 font-semibold" href="{{ route('posts.index') }}">More
-            Posts</a>
+        <a class="mt-10 block text-center text-lg font-semibold text-white bg-gradient-to-r from-blue-900 to-blue-300 p-2 rounded-lg shadow-lg" href="{{ route('posts.index') }}">More Posts</a>
     </div>
-
 
 </x-app-layout>
