@@ -28,6 +28,8 @@ class Event extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    // scope to get the events that are published and have a start date greater than or equal to the current date and time,
+    // it also can create and sechedule events for the future.
     public function scopePublished($query)
     {
         $query->where('published_at', '<=', Carbon::now());
@@ -38,6 +40,7 @@ class Event extends Model
         $query->where('featured', true);
     }
 
+    // Get the thumbnail image of the event if it exists or return a default image if it doesn't exist from the storage disk
     public function getThumbnailUrl()
     {
         $isUrl = str_contains($this->image, 'http');

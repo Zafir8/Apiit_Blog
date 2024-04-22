@@ -1,11 +1,15 @@
 <?php
 
+// `EmailDomainRule`
+// is a custom validation rule that checks if the email domain
+// is allowed for the selected user type (student, staff, or alumni).
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
 class EmailDomainRule implements Rule
 {
+
     protected $allowedDomains;
     protected $userType;
 

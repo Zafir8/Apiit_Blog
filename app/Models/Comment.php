@@ -17,11 +17,13 @@ class Comment extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class); // A comment belongs to a user (author) which is the user who created the comment
     }
 
     public function post()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Post::class); // Corrected to Post::class
     }
+
+
 }

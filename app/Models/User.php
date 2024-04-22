@@ -111,4 +111,10 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
         return $this->likes()->where('post_id', $post->id)->exists();
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }
+

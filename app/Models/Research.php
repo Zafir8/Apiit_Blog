@@ -24,7 +24,8 @@ class Research extends Model
 
 
 
-
+  // scope to get the research that are published and have a start date greater than or equal to the current date and time,
+    // it also can create and sechedule research for the future.
     public function scopePublished($query)
     {
         $query->where('published_at', '<=', Carbon::now());

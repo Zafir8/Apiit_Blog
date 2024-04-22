@@ -41,6 +41,9 @@ class Post extends Model
         return $this->belongsToMany(User::class, 'post_like')->withTimestamps();
     }
 
+    // scope to get the events that are published and have a start date greater than or equal to the current date and time,
+    // it also can create and sechedule events for the future.
+
     public function scopePublished($query)
     {
         $query->where('published_at', '<=', Carbon::now())
@@ -64,6 +67,7 @@ class Post extends Model
         return Str::limit(strip_tags($this->body), 150);
     }
 
+    // get the reading time of the post by dividing the number of words in the post by 250 words per minute
     public function getReadingTime()
     {
         $mins = round(str_word_count($this->body) / 250);

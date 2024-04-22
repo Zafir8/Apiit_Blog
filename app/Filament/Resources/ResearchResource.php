@@ -29,7 +29,7 @@ class ResearchResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
-    {
+    {   // the form for the main content
         return $form->schema([
             Section::make('Main Content')
                 ->schema([
@@ -63,7 +63,7 @@ class ResearchResource extends Resource
                         ->required(),
 
                     Checkbox::make('featured'),
-
+                    // to get the current user id and set it as the author
                     Select::make('user_id')
                         ->relationship('author', 'name')
                         ->options([Auth::id() => Auth::user()->name])
@@ -111,6 +111,7 @@ class ResearchResource extends Resource
         ];
     }
 
+    // to get the current user id and ensure that only the user's research entries are displayed
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();

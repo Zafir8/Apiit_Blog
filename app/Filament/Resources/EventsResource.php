@@ -17,6 +17,7 @@ use Filament\Forms\Components;
 use Filament\Tables\Columns;
 
 
+// The EventsResource class is a Filament resource that represents the Event model.
 class EventsResource extends Resource
 {
     protected static ?string $model = Event::class;
@@ -24,6 +25,7 @@ class EventsResource extends Resource
 
     public static function form(Forms\Form $form): Forms\Form
     {
+        // The form for the main content
         return $form->schema([
             Forms\Components\Section::make('Main Content')
                 ->schema([
@@ -57,7 +59,7 @@ class EventsResource extends Resource
                 ->columns(2),
 
 
-
+            // The form for the meta content
             Forms\Components\Section::make('Meta')
                 ->schema([
                     Forms\Components\FileUpload::make('image')
@@ -79,6 +81,7 @@ class EventsResource extends Resource
         ]);
     }
 
+    // The table to display the events
     public static function table(Tables\Table $table): Tables\Table
     {
         return $table->columns([
@@ -128,6 +131,7 @@ class EventsResource extends Resource
         ];
     }
 
+    // Get the relations for the resource events of the current user
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();

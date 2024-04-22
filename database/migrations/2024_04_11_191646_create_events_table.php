@@ -14,16 +14,16 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->longText('description');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
-            $table->timestamp('published_at')->nullable();
-            $table->boolean('featured')->default(false);
-            $table->string('location');
-            $table->string('image')->nullable();
+            $table->foreignIdFor(User::class); // This is the user who created the event
+            $table->string('title'); // The title of the event
+            $table->string('slug')->unique(); // The slug of the event
+            $table->longText('description'); // The description of the event
+            $table->dateTime('start_date'); // The start date of the event
+            $table->dateTime('end_date'); // The end date of the event
+            $table->timestamp('published_at')->nullable(); // The date the event was published
+            $table->boolean('featured')->default(false); // Whether the event is featured
+            $table->string('location'); // The location of the event
+            $table->string('image')->nullable(); // The image of the event
 
             $table->softDeletes();
             $table->timestamps();

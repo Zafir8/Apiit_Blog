@@ -21,6 +21,7 @@ use Filament\Tables\Actions\DeleteBulkAction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\PostResource\RelationManagers\CommentsRelationManager;
 
 class PostResource extends Resource
 {
@@ -28,7 +29,7 @@ class PostResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
-    {
+    {  // the form for the main content
         return $form->schema([
             Section::make('Main Content')
                 ->schema([
@@ -81,7 +82,7 @@ class PostResource extends Resource
                 ]),
         ]);
     }
-
+    // table to display the posts
     public static function table(Table $table): Table
     {
         return $table->columns([
@@ -124,6 +125,14 @@ class PostResource extends Resource
         ];
     }
 
+    public  static function getRelationManagers(): array
+    {
+        return [
+            CommentsRelationManager::class,
+        ];
+    }
+
+    // to get the current user id and ensure that only the user's research entries are displayed
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();

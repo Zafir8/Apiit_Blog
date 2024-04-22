@@ -23,6 +23,7 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
+                // main content for table columns and form fields
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
@@ -36,6 +37,7 @@ class UserResource extends Resource
             ]);
     }
 
+    // table columns and actions for the user resource
     public static function table(Table $table): Table
     {
         return $table
