@@ -19,7 +19,7 @@ class CreateNewUser implements CreatesNewUsers
         $domains = [
             'student' => ['students.apiit.lk'],
             'staff' => ['apiit.lk'],
-            'alumni' => ['*'] // Assume all domains are allowed for alumni
+            'alumni' => ['*'] // all domains are allowed for alumni
         ];
 
         $rules = [
