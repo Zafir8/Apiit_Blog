@@ -21,6 +21,12 @@
             <span><i class="fas fa-calendar-alt"></i> {{ $event->start_date->format('M d, Y') }}</span>
         </div>
 
+        <!-- Author information -->
+        <div class="flex items-center mt-2">
+            <img src="{{ $event->author->profile_photo_url }}" alt="{{ $event->author->name }}" class="w-6 h-6 rounded-full mr-2">
+            <span class="text-sm text-gray-600">By {{ $event->author->name }}</span>
+        </div>
+
         <!-- Event description (truncated) -->
         <p class="text-gray-500 mt-2 line-clamp-3">
             {!! $event->description !!}

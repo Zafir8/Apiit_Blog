@@ -18,6 +18,10 @@ class Research extends Model
         'user_id', 'title', 'slug', 'description', 'published_at', 'featured', 'image',
     ];
 
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+
 
 
 

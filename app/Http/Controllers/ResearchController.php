@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\Research;
 use Illuminate\Http\Request;
 
@@ -15,5 +16,14 @@ class ResearchController extends Controller
         ]);
 
 
+
+
+    }
+
+    public function show(Research $research)
+    {
+        return view('research.show', [
+            'research' => $research
+        ]);
     }
 }

@@ -25,6 +25,7 @@ Route::post('/posts/{id}/approve', [PostController::class, 'approve'])->middlewa
 Route::get('/events', EventController::class)->name('events.index');
 // research route
 Route::get('/research', ResearchController::class)->name('research.index');
+Route::get('/research/{research:slug}', [ResearchController::class, 'show'])->name('research.show');
 
 
 
