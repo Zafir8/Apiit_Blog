@@ -4,7 +4,7 @@
         <div class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('{{ asset('images/PHOTO-APIIT-01.jpg') }}');">
             <div class="absolute inset-0 bg-black bg-opacity-40"></div>
             <div class="relative z-10 text-center">
-                <h1 class="text-white font-bold text-5xl md:text-7xl animate-pulse">Welcome to Connect Space apiit<</h1>
+                <h1 class="text-white font-bold text-5xl md:text-7xl animate-pulse">Welcome to Connect Space <</h1>
             </div>
         </div>
     @endsection
