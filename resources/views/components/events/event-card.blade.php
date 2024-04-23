@@ -1,8 +1,9 @@
 <div class="max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden md:max-w-lg">
-    <!-- Image section with overlay link to read more -->
+    <!-- Image section with dynamic sizing -->
     <div class="relative">
         <a href="#">
-            <img class="w-full h-56 object-cover" src="{{ $event->getThumbnailUrl() }}" alt="{{ $event->title }}">
+            <!-- Adjust the height or remove the fixed height to allow the image to scale naturally -->
+            <img class="w-full object-cover" style="height: 100%; min-height: 200px;" src="{{ $event->getThumbnailUrl() }}" alt="{{ $event->title }}">
         </a>
         <!-- Overlay with event type on the image -->
         <a href="#" class="absolute top-0 left-0 bg-yellow-300 text-white text-xs uppercase px-3 py-1 rounded-br-lg">
