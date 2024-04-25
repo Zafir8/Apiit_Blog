@@ -1,7 +1,7 @@
 <x-app-layout>
     @section('hero')
         <div class="w-full py-32 bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 relative">
-            <img src="https://scontent.fcmb11-1.fna.fbcdn.net/v/t39.30808-6/404114002_905654354517745_9160902799627901410_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=zJATyecPv9AAb6dvhei&_nc_zt=23&_nc_ht=scontent.fcmb11-1.fna&oh=00_AfA_JGg8Ikqz1yhjWqntL1eIzpKJc0AirlQ8sTTRvkMOkQ&oe=6629C92D" class="absolute inset-0 object-cover w-full h-full opacity-50" alt="APIIT Background">
+            <img src="https://scontent.fcmb2-2.fna.fbcdn.net/v/t39.30808-6/404040739_905653917851122_7136702718258062048_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=1P9g9ug_RgAAb4JAQAz&_nc_ht=scontent.fcmb2-2.fna&oh=00_AfATWzHNir9YUBVUCztGoC9effRZz_j7OaTLULKKjTCujQ&oe=662FB8BC" class="absolute inset-0 object-cover w-full h-full opacity-50" alt="APIIT Background">
             <div class="container mx-auto px-4 relative">
                 <div class="flex flex-col items-center justify-center text-center">
                     <h1 class="text-5xl md:text-6xl font-bold text-white tracking-tight">
