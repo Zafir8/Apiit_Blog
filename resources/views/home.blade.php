@@ -31,7 +31,7 @@
         </div>
         <a class="mt-10 block text-center text-lg font-semibold text-gray-900 hover:text-gray-700 p-2 rounded-lg" href="{{ route('posts.index') }}">More Posts</a>
     </div> --}}
-    
+
     @section('hero')
         <div class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('{{ asset('images/APIIT-BLOG-COVER.png') }}');">
         </div>
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-    
+
         <hr class="border-gray-300">
 
         <h2 class="mt-16 mb-5 text-3xl font-bold text-gray-900">Upcoming Events</h2>
@@ -61,13 +61,13 @@
             </div>
         </div>
     </div>
-     
+
     @section('blogger')
-    <div class="w-full bg-back mb-10 p-8 text-center">
-        <h2 class="text-4xl font-bold mb-4">Become a Blogger</h2>
-        <p class="text-lg font-bold mb-4">If you are an APIIT student, lecturer, or alumni and want to become a blogger, please contact us.</p>
+    <div class="w-full bg-black mb-10 p-8 text-center h-72">
+        <h2 class="text-4xl font-bold mb-4 text-white">Become a Blogger</h2>
+        <p class="text-lg font-bold mb-4 text-white">If you are an APIIT student, lecturer, or alumni and want to become a blogger, please contact us.</p>
         <a href="mailto:contact@example.com" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Contact Us</a>
-    </div> 
+    </div>
     @endsection
 
 </x-app-layout>
