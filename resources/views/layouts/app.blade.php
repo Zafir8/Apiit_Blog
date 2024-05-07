@@ -37,6 +37,7 @@
 
 @yield('hero')
 @yield('about')
+@yield('blogger')
 
 
 
