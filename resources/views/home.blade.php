@@ -67,8 +67,8 @@
 
         <section id="features"
             class="relative block px-6 py-10 md:py-20 md:px-10  border-t border-b border-neutral-900 bg-neutral-900/30">
-    
-    
+
+
             <div class="relative mx-auto max-w-5xl text-center">
                 <span class="text-gray-400 my-3 flex items-center justify-center font-medium uppercase tracking-wider">
                 Become a blogger at
@@ -84,8 +84,8 @@
 
                 </p>
             </div>
-    
-    
+
+
             <div class="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
                 <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
                     <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
@@ -107,8 +107,8 @@
 
                     </p>
                 </div>
-    
-    
+
+
                 <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
                     <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
                         style="background-image: linear-gradient(rgb(184, 33, 58) 10%, rgb(163, 20, 32) 10%); border-color: rgb(218, 11, 46);">
@@ -126,8 +126,8 @@
 
                     </p>
                 </div>
-    
-    
+
+
                 <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
                     <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
                         style="background-image: linear-gradient(rgb(184, 33, 58) 0%, rgb(163, 20, 32) 100%); border-color: rgb(218, 11, 46);">
@@ -148,24 +148,24 @@
                         Fill the form provided at the bottom of the page and get verified as a blogger.
                     </p>
                 </div>
-    
-    
+
+
             </div>
-    
+
             <div class="absolute bottom-0 left-0 z-0 h-1/3 w-full border-b"
                 style="background-image: linear-gradient(to right top, rgba(79, 70, 229, 0.2) 0%, transparent 50%, transparent 100%); border-color: rgba(92, 79, 240, 0.2);">
             </div>
             <div class="absolute bottom-0 right-0 z-0 h-1/3 w-full"
                 style="background-image: linear-gradient(to left top, rgba(220, 38, 38, 0.2) 0%, transparent 50%, transparent 100%); border-color: rgba(92, 79, 240, 0.2);">
             </div>
-    
+
         </section>
     </div>
     @endsection
 
 
 
-    
+
  @section('sliders')
 
 <div class="container my-24 mx-auto md:px-6">
@@ -186,7 +186,7 @@
             <h2 class="mb-8 text-3xl font-bold">  CONNECT SPACE</h2>
             <p class="mb-8 pb-2 lg:pb-0">
                 Turning your passion of blogging into a platform
-              
+
             </p>
 
             <div class="mx-auto mb-8 flex flex-col md:flex-row md:justify-around xl:justify-start">
@@ -219,7 +219,7 @@
             </div>
 
             <p>
-              
+
 Connect Space is a digital hub for collaboration, innovation, and networking, offering a diverse array of categories to keep you informed and engaged.
             </p>
           </div>
@@ -229,64 +229,63 @@ Connect Space is a digital hub for collaboration, innovation, and networking, of
   </section>
   <!-- Section: Design Block -->
 </div>
-     
+
  @endsection
-
-
-
     @section('cards')
-    
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap items-center justify-center w-full text-center">
 
-    <div class="container m-auto">
-        <div class="flex flex-wrap items-center justify-center w-full text-center">
-            
-            <div class="w-full p-4 md:w-1/2 lg:w-1/3">
-                <div class="flex flex-col rounded border-2 border-black bg-black">
-                    <div class="py-5 text-black bg-white">
-                        <p class="text-2xl font-bold">FOCUS ROOM</p>
-                    </div>
-                    <div class="py-5 bg-black text-white rounded-b">
-                        <p>Finding difficulty with</p>
-                        <p>coursework</p>
-                        <p>Share it with us</p>
-                        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vnsShoAUrkevNR_ModMj5MRdGLgV-01LkdjXpXD5ZmhUNExBVU8zNzdOVkVPSzJMRkZSTURCQTNDNi4u" class="px-2 py-1 uppercase rounded bg-white text-black font-regular hover:bg-red-500 hover:text-white my-2">View Form</a>
-                    </div>
-                </div>
-            </div>
-          
-            <div class="w-full p-4 md:w-1/2 lg:w-1/3">
-                <div class="flex flex-col rounded">
-                    <div class="py-1 bg-black text-white rounded-t">
-                        <h3>Become a</h3>
-                        <p class="text-3xl font-bold">BLOGGER</p>
-                    </div>
-                    <div>
-                        <div class="py-5 bg-black text-white rounded-b">
-                            <p>Start blogging at connect space</p>
-                            <p>Fill the form to get entitled as a</p>
-                            <p>Blogger</p>
-                            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vnsShoAUrkevNR_ModMj5MRdGLgV-01LkdjXpXD5ZmhUQlU2SEVVQjVGVE42TEM5R1kzMFFJVEJZVy4u" class="px-5 py-1 uppercase rounded bg-white text-black font-regular hover:bg-red-500 hover:text-white my-50">View Form</a>
+                <!-- Focus Room Card -->
+                <div class="w-full p-4 md:w-1/2 lg:w-1/3">
+                    <div class="flex flex-col rounded-lg border-2 border-black bg-black">
+                        <div class="py-5 text-black bg-white rounded-t-lg">
+                            <p class="text-2xl font-bold">FOCUS ROOM</p>
+                        </div>
+                        <div class="py-5 bg-black text-white rounded-b-lg">
+                            <p>Finding difficulty with</p>
+                            <p>coursework</p>
+                            <p>Share it with us</p>
+                            <br>
+                            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vnsShoAUrkevNR_ModMj5MRdGLgV-01LkdjXpXD5ZmhUNExBVU8zNzdOVkVPSzJMRkZSTURCQTNDNi4u" class="mt-4 px-4 py-2 uppercase rounded bg-white text-black font-medium hover:bg-red-500 hover:text-white">View Form</a>
                         </div>
                     </div>
                 </div>
-            </div>
-          
-            <div class="w-full p-4 md:w-1/2 lg:w-1/3">
-                <div class="flex flex-col rounded border-2 border-black bg-black">
-                    <div class="py-5 text-black bg-white">
-                        <p class="text-2xl font-bold">EVENTS</p>
-                    </div>
-                    <div class="py-5 bg-black text-white rounded-b">
-                        <p>Visit our events page!</p>
-                        <p>To get updated on the latest events</p>
-                        <p>at APIIT</p>
-                        <a href="https://group-10.laravelsrilanka.com/events" class="px-4 py-1 uppercase rounded bg-white text-black font-regular hover:bg-red-500 hover:text-white my-2">View Events</a>
+
+                <!-- Blogger Card -->
+                <div class="w-full p-4 md:w-1/2 lg:w-1/3">
+                    <div class="flex flex-col rounded-lg border-2 border-black bg-black">
+                        <div class="py-5 bg-black text-white rounded-t-lg">
+                            <h3 class="text-xl">Become a</h3>
+                            <p class="text-3xl font-bold">BLOGGER</p>
+                        </div>
+                        <div class="py-5 bg-black text-white rounded-b-lg">
+                            <p>Start blogging at connect space</p>
+                            <p>Fill the form to get entitled as a</p>
+                            <p>Blogger</p>
+                            <br>
+                            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vnsShoAUrkevNR_ModMj5MRdGLgV-01LkdjXpXD5ZmhUQlU2SEVVQjVGVE42TEM5R1kzMFFJVEJZVy4u" class="mt-4 px-4 py-2 uppercase rounded bg-white text-black font-medium hover:bg-red-500 hover:text-white">View Form</a>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Events Card -->
+                <div class="w-full p-4 md:w-1/2 lg:w-1/3">
+                    <div class="flex flex-col rounded-lg border-2 border-black bg-black">
+                        <div class="py-5 text-black bg-white rounded-t-lg">
+                            <p class="text-2xl font-bold">EVENTS</p>
+                        </div>
+                        <div class="py-5 bg-black text-white rounded-b-lg">
+                            <p>Visit our events page!</p>
+                            <p>To get updated on the latest events</p>
+                            <p>at APIIT</p>
+                            <br>
+                            <a href="https://group-10.laravelsrilanka.com/events" class="mt-4 px-4 py-2 uppercase rounded bg-white text-black font-medium hover:bg-red-500 hover:text-white">View Events</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
-    
     @endsection
 
 
