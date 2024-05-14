@@ -237,74 +237,56 @@ Connect Space is a digital hub for collaboration, innovation, and networking, of
     @section('cards')
     
 
-<div class="container m-auto">
-    <div class="flex flex-wrap items-center justify-center w-full text-center">
-        
-        <div class="w-full p-4 md:w-1/2 lg:w-1/3">
-            <div class="flex flex-col rounded border-2 border-black bg-black">
-                <div class="py-5 text-black bg-white">
-                    
-                    <p class="text-2xl font-bold">
-                        FOCUS ROOM
-                    </p>
-                    
-                </div>
-                <div class="py-5 bg-black text-white rounded-b">
-                    <p>Finding difficulty with</p>
-                    <p>coursework </p>
-                    <p>Share it with us</p>
-                    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vnsShoAUrkevNR_ModMj5MRdGLgV-01LkdjXpXD5ZmhUNExBVU8zNzdOVkVPSzJMRkZSTURCQTNDNi4u"class="px-2 py-1 uppercase rounded bg-white text-black font-regular hover:bg-red-500 hover:text-white">
-                View Form
-                    </a>
+    <div class="container m-auto">
+        <div class="flex flex-wrap items-center justify-center w-full text-center">
+            
+            <div class="w-full p-4 md:w-1/2 lg:w-1/3">
+                <div class="flex flex-col rounded border-2 border-black bg-black">
+                    <div class="py-5 text-black bg-white">
+                        <p class="text-2xl font-bold">FOCUS ROOM</p>
+                    </div>
+                    <div class="py-5 bg-black text-white rounded-b">
+                        <p>Finding difficulty with</p>
+                        <p>coursework</p>
+                        <p>Share it with us</p>
+                        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vnsShoAUrkevNR_ModMj5MRdGLgV-01LkdjXpXD5ZmhUNExBVU8zNzdOVkVPSzJMRkZSTURCQTNDNi4u" class="px-2 py-1 uppercase rounded bg-white text-black font-regular hover:bg-red-500 hover:text-white my-2">View Form</a>
+                    </div>
                 </div>
             </div>
-        </div>
-      
-        <div class="w-full p-4 md:w-1/2 lg:w-1/3">
-            <div class="flex flex-col rounded">
-                <div class="py-7 bg-black text-white rounded-t">
-                
-                    <h3>Become a</h3>
-                    <p class="text-2xl font-bold">
-                        BLOGGER
-                    </p>
-                  
+          
+            <div class="w-full p-4 md:w-1/2 lg:w-1/3">
+                <div class="flex flex-col rounded">
+                    <div class="py-1 bg-black text-white rounded-t">
+                        <h3>Become a</h3>
+                        <p class="text-3xl font-bold">BLOGGER</p>
+                    </div>
+                    <div>
+                        <div class="py-5 bg-black text-white rounded-b">
+                            <p>Start blogging at connect space</p>
+                            <p>Fill the form to get entitled as a</p>
+                            <p>Blogger</p>
+                            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vnsShoAUrkevNR_ModMj5MRdGLgV-01LkdjXpXD5ZmhUQlU2SEVVQjVGVE42TEM5R1kzMFFJVEJZVy4u" class="px-5 py-1 uppercase rounded bg-white text-black font-regular hover:bg-red-500 hover:text-white my-50">View Form</a>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <div class="pt-1  pb-7 bg-black text-white rounded-b">
-                        <p>Start blogging at connect space</p>
-                        <p>Fill the form to get entitled as a </p>
-                        <p>Blogger</p>
-                        
-                        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vnsShoAUrkevNR_ModMj5MRdGLgV-01LkdjXpXD5ZmhUQlU2SEVVQjVGVE42TEM5R1kzMFFJVEJZVy4u"class="px-2 py-1  uppercase rounded bg-white text-black font-regular hover:bg-red-500 hover:text-white ">
-                  View Form
-                        </a>
+            </div>
+          
+            <div class="w-full p-4 md:w-1/2 lg:w-1/3">
+                <div class="flex flex-col rounded border-2 border-black bg-black">
+                    <div class="py-5 text-black bg-white">
+                        <p class="text-2xl font-bold">EVENTS</p>
+                    </div>
+                    <div class="py-5 bg-black text-white rounded-b">
+                        <p>Visit our events page!</p>
+                        <p>To get updated on the latest events</p>
+                        <p>at APIIT</p>
+                        <a href="https://group-10.laravelsrilanka.com/events" class="px-4 py-1 uppercase rounded bg-white text-black font-regular hover:bg-red-500 hover:text-white my-2">View Events</a>
                     </div>
                 </div>
             </div>
         </div>
-      
-        <div class="w-full p-4 md:w-1/2 lg:w-1/3">
-            <div class="flex flex-col rounded border-2 border-black bg-black">
-                <div class="py-5 text-black bg-white">
-                   
-                    <p class="text-2xl font-bold">
-                        EVENTS
-                    </p>
-                    
-                </div>
-                <div class="py-5 bg-black text-white rounded-b">
-                    <p> Visit our events page!</p>
-                    <p>To get updated on the latest events</p>
-                    <p>at APIIT</p>
-                    <a href="https://group-10.laravelsrilanka.com/events" class="px-2 py-1  uppercase rounded bg-white text-black font-regular hover:bg-red-500 hover:text-white">
-                View Events
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
+    
     @endsection
 
 
