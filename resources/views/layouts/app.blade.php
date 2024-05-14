@@ -42,8 +42,7 @@
 </main>
 
 @yield('blogger')
-@yield('news')
-@yield('slider')
+@yield('sliders')
 @yield('cards')
 
 
