@@ -33,7 +33,7 @@
     </div> --}}
 
     @section('hero')
-        <div class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('{{ asset('images/APIIT-BLOG-COVER.png') }}');">
+        <div class="w-full relative h-screen flex items-center justify-center  bg-cover bg-center" style="background-image: url('{{ asset('images/APIIT-BLOG-COVER.png') }}');">
         </div>
     @endsection
 
@@ -235,11 +235,11 @@ Connect Space is a digital hub for collaboration, innovation, and networking, of
 
 
     @section('cards')
-    <!-- source:https://gist.github.com/w3collective/7e7c89635fd932e5dae470b3516c1a99 -->
+    
 
 <div class="container m-auto">
     <div class="flex flex-wrap items-center justify-center w-full text-center">
-        <!-- basic plan -->
+        
         <div class="w-full p-4 md:w-1/2 lg:w-1/3">
             <div class="flex flex-col rounded border-2 border-black bg-black">
                 <div class="py-5 text-black bg-white">
@@ -250,16 +250,16 @@ Connect Space is a digital hub for collaboration, innovation, and networking, of
                     
                 </div>
                 <div class="py-5 bg-black text-white rounded-b">
-                    <p>Join industry workshops</p>
-                    <p>at our very own focus rooms </p>
-                    <p>conducted by our alumni</p>
-                    <button class="px-5 py-2 mt-5 uppercase rounded bg-white text-black font-semibold hover:bg-blue-900 hover:text-white">
-                View
-              </button>
+                    <p>Finding difficulty with</p>
+                    <p>coursework </p>
+                    <p>Share it with us</p>
+                    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vnsShoAUrkevNR_ModMj5MRdGLgV-01LkdjXpXD5ZmhUNExBVU8zNzdOVkVPSzJMRkZSTURCQTNDNi4u"class="px-2 py-1 uppercase rounded bg-white text-black font-regular hover:bg-red-500 hover:text-white">
+                View Form
+                    </a>
                 </div>
             </div>
         </div>
-        <!-- standard plan -->
+      
         <div class="w-full p-4 md:w-1/2 lg:w-1/3">
             <div class="flex flex-col rounded">
                 <div class="py-7 bg-black text-white rounded-t">
@@ -271,18 +271,19 @@ Connect Space is a digital hub for collaboration, innovation, and networking, of
                   
                 </div>
                 <div>
-                    <div class="pt-1 mb-10  pb-7 bg-black text-white rounded-b">
+                    <div class="pt-1  pb-7 bg-black text-white rounded-b">
+                        <p>Start blogging at connect space</p>
                         <p>Fill the form to get entitled as a </p>
                         <p>Blogger</p>
                         
-                        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vnsShoAUrkevNR_ModMj5MRdGLgV-01LkdjXpXD5ZmhUQlU2SEVVQjVGVE42TEM5R1kzMFFJVEJZVy4u"class="px-5 py-2 mt-20 uppercase rounded bg-white text-black font-semibold hover:bg-red-500 hover:text-white ">
-                  View
+                        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vnsShoAUrkevNR_ModMj5MRdGLgV-01LkdjXpXD5ZmhUQlU2SEVVQjVGVE42TEM5R1kzMFFJVEJZVy4u"class="px-2 py-1  uppercase rounded bg-white text-black font-regular hover:bg-red-500 hover:text-white ">
+                  View Form
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- advanced plan -->
+      
         <div class="w-full p-4 md:w-1/2 lg:w-1/3">
             <div class="flex flex-col rounded border-2 border-black bg-black">
                 <div class="py-5 text-black bg-white">
@@ -293,12 +294,12 @@ Connect Space is a digital hub for collaboration, innovation, and networking, of
                     
                 </div>
                 <div class="py-5 bg-black text-white rounded-b">
-                    <p> Visit our event calendar!</p>
+                    <p> Visit our events page!</p>
                     <p>To get updated on the latest events</p>
                     <p>at APIIT</p>
-                    <button class="px-5 py-2 mt-5 uppercase rounded bg-white text-black font-semibold hover:bg-blue-900 hover:text-white">
-                View
-              </button>
+                    <a href="https://group-10.laravelsrilanka.com/events" class="px-2 py-1  uppercase rounded bg-white text-black font-regular hover:bg-red-500 hover:text-white">
+                View Events
+                    </a>
                 </div>
             </div>
         </div>
