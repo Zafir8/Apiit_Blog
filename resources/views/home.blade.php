@@ -52,7 +52,7 @@
 
         <hr class="border-gray-300">
 
-        <h2 class="mt-16 mb-5 text-3xl font-bold text-gray-900">Upcoming Events</h2>
+        <h2 class="mt-16 mb-5 text-3xl font-bold text-gray-900">Latest blogs</h2>
         <div class="w-full mb-5">
             <div class="grid grid-cols-3 gap-10 w-full">
                 @foreach ($latestPosts as $post)
