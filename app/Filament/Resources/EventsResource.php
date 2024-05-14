@@ -16,8 +16,6 @@ use Illuminate\Support\Str;
 use Filament\Forms\Components;
 use Filament\Tables\Columns;
 
-
-// The EventsResource class is a Filament resource that represents the Event model.
 class EventsResource extends Resource
 {
     protected static ?string $model = Event::class;
@@ -25,7 +23,6 @@ class EventsResource extends Resource
 
     public static function form(Forms\Form $form): Forms\Form
     {
-        // The form for the main content
         return $form->schema([
             Forms\Components\Section::make('Main Content')
                 ->schema([
@@ -55,11 +52,14 @@ class EventsResource extends Resource
 
                     Forms\Components\TextInput::make('location')
                         ->required(),
+
+                    Forms\Components\TextInput::make('rsvp_link') // Adding rsvp_link field
+                    ->url()
+                        ->label('RSVP Link')
+
                 ])
                 ->columns(2),
 
-
-            // The form for the meta content
             Forms\Components\Section::make('Meta')
                 ->schema([
                     Forms\Components\FileUpload::make('image')
@@ -74,14 +74,10 @@ class EventsResource extends Resource
                         ->searchable()
                         ->default(Auth::id())
                         ->required(),
-
-
                 ]),
-
         ]);
     }
 
-    // The table to display the events
     public static function table(Tables\Table $table): Tables\Table
     {
         return $table->columns([
@@ -113,12 +109,17 @@ class EventsResource extends Resource
             Columns\TextColumn::make('author.name')
                 ->searchable()
                 ->sortable(),
+
+            Columns\TextColumn::make('rsvp_link') // Adding rsvp_link column
+            ->label('RSVP Link')
+                ->url(fn (Event $record) => $record->rsvp_link) // Provide callable for url()
+                ->sortable(),
         ])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(), // Adding the DeleteBulkAction
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
@@ -131,7 +132,6 @@ class EventsResource extends Resource
         ];
     }
 
-    // Get the relations for the resource events of the current user
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
@@ -141,3 +141,4 @@ class EventsResource extends Resource
         return $query;
     }
 }
+
