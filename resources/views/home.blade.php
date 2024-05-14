@@ -163,9 +163,6 @@
     </div>
     @endsection
 
-
-
-
  @section('sliders')
 
 <div class="container my-24 mx-auto md:px-6">
@@ -227,10 +224,10 @@ Connect Space is a digital hub for collaboration, innovation, and networking, of
       </div>
     </div>
   </section>
-  <!-- Section: Design Block -->
 </div>
 
  @endsection
+
     @section('cards')
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap items-center justify-center w-full text-center">
@@ -279,7 +276,7 @@ Connect Space is a digital hub for collaboration, innovation, and networking, of
                             <p>To get updated on the latest events</p>
                             <p>at APIIT</p>
                             <br>
-                            <a href="https://group-10.laravelsrilanka.com/events" class="mt-4 px-4 py-2 uppercase rounded bg-white text-black font-medium hover:bg-red-500 hover:text-white">View Events</a>
+                            <a href="{{ route('events.index') }}" class="mt-4 px-4 py-2 uppercase rounded bg-white text-black font-medium hover:bg-red-500 hover:text-white">View Events</a>
                         </div>
                     </div>
                 </div>
@@ -287,10 +284,6 @@ Connect Space is a digital hub for collaboration, innovation, and networking, of
             </div>
         </div>
     @endsection
-
-
-
-
 
 
 </x-app-layout>
