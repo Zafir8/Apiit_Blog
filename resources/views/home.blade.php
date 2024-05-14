@@ -41,9 +41,9 @@
         <div class="mb-16">
             <h2 class="mt-16 mb-5 text-3xl font-bold text-gray-900">Featured Blogs</h2>
             <div class="w-full">
-                <div class="grid grid-cols-4 gap-10 w-full">
+                <div class="grid grid-cols-3 gap-10 w-full">
                     @foreach ($featuredPosts as $post)
-                        <x-posts.post-card :post="$post" class="md:col-span-1 col-span-4" />
+                        <x-posts.post-card :post="$post" class="md:col-span-1 col-span-3" />
                     @endforeach
                 </div>
             </div>
@@ -54,9 +54,9 @@
 
         <h2 class="mt-16 mb-5 text-3xl font-bold text-gray-900">Upcoming Events</h2>
         <div class="w-full mb-5">
-            <div class="grid grid-cols-4 gap-10 w-full">
+            <div class="grid grid-cols-3 gap-10 w-full">
                 @foreach ($latestPosts as $post)
-                    <x-posts.post-card :post="$post" class="md:col-span-1 col-span-4" />
+                    <x-posts.post-card :post="$post" class="md:col-span-1 col-span-3" />
                 @endforeach
             </div>
         </div>
@@ -165,105 +165,72 @@
 
 
 
-    @section('news')
-    <div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-        <div class="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 gap-5">
     
-            <div class="relative w-full flex items-end justify-start text-left bg-cover bg-center"
-                style="height: 450px; background-image:url(https://media.gettyimages.com/photos/at-the-the-network-tolo-televised-debate-dr-abdullah-abdullah-with-picture-id1179614034?k=6&amp;m=1179614034&amp;s=612x612&amp;w=0&amp;h=WwIX3RMsOQEn5DovD9J3e859CZTdxbHHD3HRyrgU3A8=);">
-                <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
-                </div>
-                <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
-                    <a href="#"
-                        class="text-xs bg-indigo-600 text-white px-5 py-2 uppercase hover:bg-white hover:text-indigo-600 transition ease-in-out duration-500">Politics</a>
-                    <div class="text-white font-regular flex flex-col justify-start">
-                        <span class="text-3xl leading-0 font-semibold">25</span>
-                        <span class="-mt-3">May</span>
-                    </div>
-                </div>
-                <main class="p-5 z-10">
-                    <a href="#"
-                        class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Dr.
-                        Abdullah Abdullah's Presidential Election Campaign
-                    </a>
-                </main>
-    
-            </div>
-    
-            <div class="relative w-full flex items-end justify-start text-left bg-cover bg-center"
-                style="height: 450px; background-image:url(https://media.gettyimages.com/photos/ashraf-ghani-afghanistans-president-speaks-at-the-council-on-foreign-picture-id850794338?k=6&amp;m=850794338&amp;s=612x612&amp;w=0&amp;h=b_XBw5S38Cioslqr6VL3e36cWQU205IsInqDXZpDOD4=);">
-                <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
-                </div>
-                <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
-                    <a href="#"
-                        class="text-xs bg-indigo-600 text-white px-5 py-2 uppercase hover:bg-white hover:text-indigo-600 transition ease-in-out duration-500">Politics</a>
-                    <div class="text-white font-regular flex flex-col justify-start">
-                        <span class="text-3xl leading-0 font-semibold">10</span>
-                        <span class="-mt-3">Mar</span>
-                    </div>
-                </div>
-                <main class="p-5 z-10">
-                    <a href="#"
-                        class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Afghanistan's
-                        President Ashraf Ghani Speaks At The Council
-                    </a>
-                </main>
-    
-            </div>
-    
-            <div class="relative w-full flex items-end justify-start text-left bg-cover bg-center"
-                style="height: 450px; background-image:url(https://media.gettyimages.com/photos/afghan-president-ashraf-ghani-arrives-to-the-welcoming-ceremony-the-picture-id694155252?k=6&amp;m=694155252&amp;s=612x612&amp;w=0&amp;h=IIJPetzJL-hAgPkE4hm2wUKvO4YOav8jJp484CgLEUs=);">
-                <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
-                </div>
-                <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
-                    <a href="#"
-                        class="text-xs bg-indigo-600 text-white px-5 py-2 uppercase hover:bg-white hover:text-indigo-600 transition ease-in-out duration-500">Politics</a>
-                    <div class="text-white font-regular flex flex-col justify-start">
-                        <span class="text-3xl leading-0 font-semibold">20</span>
-                        <span class="-mt-3">Jan</span>
-                    </div>
-                </div>
-                <main class="p-5 z-10">
-                    <a href="#"
-                        class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Middle
-                        East Participants Gather In Warsaw
-                    </a>
-                </main>
-    
-            </div>
-    
-            <div class="relative w-full flex items-end justify-start text-left bg-cover bg-center"
-                style="height: 450px; background-image:url(https://media.gettyimages.com/photos/afghan-president-ashraf-ghani-speaks-during-a-gathering-in-jalalabad-picture-id1205021905?k=6&amp;m=1205021905&amp;s=612x612&amp;w=0&amp;h=nwAH1XuZxF_H4f6LfHv-lgqtZe0h1tVFXfzhpMwFqao=);">
-                <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
-                </div>
-                <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
-                    <a href="#"
-                        class="text-xs bg-indigo-600 text-white px-5 py-2 uppercase hover:bg-white hover:text-indigo-600 transition ease-in-out duration-500">Politics</a>
-                    <div class="text-white font-regular flex flex-col justify-start">
-                        <span class="text-3xl leading-0 font-semibold">25</span>
-                        <span class="-mt-3">May</span>
-                    </div>
-                </div>
-                <main class="p-5 z-10">
-                    <a href="#"
-                        class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Afghan
-                        President Ashraf Ghani Visits Jalalabad
-                    </a>
-                </main>
-    
-            </div>
-    
-        </div>
-    </div>
-    
-    @endsection
+ @section('sliders')
 
-    @section('slider')
-    
-    
-    
-        
-    @endsection
+<div class="container my-24 mx-auto md:px-6">
+  <!-- Section: Design Block -->
+  <section class="mb-32">
+    <div class="flex flex-wrap">
+      <div class="mb-12 w-full shrink-0 grow-0 basis-auto lg:mb-0 lg:w-5/12">
+        <div class="flex lg:py-12">
+          <img src="https://lmd.lk/wp-content/uploads/2020/11/IMAGE-APIIT-Staffordshire.jpg"
+            class="z-[10] w-full rounded-lg shadow-lg dark:shadow-black/20 lg:ml-[50px]" alt="image" />
+        </div>
+      </div>
+
+      <div class="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
+        <div
+          class="flex h-full items-center rounded-lg bg-black p-6 text-center text-white lg:pl-12 lg:text-left">
+          <div class="lg:pl-12">
+            <h2 class="mb-8 text-3xl font-bold">  CONNECT SPACE</h2>
+            <p class="mb-8 pb-2 lg:pb-0">
+                Turning your passion of blogging into a platform
+              
+            </p>
+
+            <div class="mx-auto mb-8 flex flex-col md:flex-row md:justify-around xl:justify-start">
+              <p class="mx-auto mb-4 flex items-center md:mx-0 md:mb-2 lg:mb-0 xl:mr-20">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" class="mr-2 h-5 w-5">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Network
+              </p>
+
+              <p class="mx-auto mb-4 flex items-center md:mx-0 md:mb-2 lg:mb-0 xl:mr-20">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" class="mr-2 h-5 w-5">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Innovation
+              </p>
+
+              <p class="mx-auto mb-2 flex items-center md:mx-0 lg:mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" class="mr-2 h-5 w-5">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Discovery
+              </p>
+            </div>
+
+            <p>
+              
+Connect Space is a digital hub for collaboration, innovation, and networking, offering a diverse array of categories to keep you informed and engaged.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+</div>
+     
+ @endsection
 
 
 
@@ -283,9 +250,9 @@
                     
                 </div>
                 <div class="py-5 bg-black text-white rounded-b">
-                    <p>Require assistance in any module</p>
-                    <p>Request a focus room </p>
-                    <p>To connect with alumni</p>
+                    <p>Join industry workshops</p>
+                    <p>at our very own focus rooms </p>
+                    <p>conducted by our alumni</p>
                     <button class="px-5 py-2 mt-5 uppercase rounded bg-white text-black font-semibold hover:bg-blue-900 hover:text-white">
                 View
               </button>
@@ -304,13 +271,13 @@
                   
                 </div>
                 <div>
-                    <div class="pt-1 pb-7 bg-black text-white rounded-b">
+                    <div class="pt-1 mb-10  pb-7 bg-black text-white rounded-b">
                         <p>Fill the form to get entitled as a </p>
                         <p>Blogger</p>
                         
-                        <button class="px-5 py-2 mt-5 uppercase rounded bg-white text-black font-semibold hover:bg-blue-900 hover:text-white">
+                        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vnsShoAUrkevNR_ModMj5MRdGLgV-01LkdjXpXD5ZmhUQlU2SEVVQjVGVE42TEM5R1kzMFFJVEJZVy4u"class="px-5 py-2 mt-20 uppercase rounded bg-white text-black font-semibold hover:bg-red-500 hover:text-white ">
                   View
-                </button>
+                        </a>
                     </div>
                 </div>
             </div>
