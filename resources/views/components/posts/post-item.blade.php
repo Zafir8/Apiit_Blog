@@ -12,7 +12,7 @@
                 <span>{{ $post->published_at->diffForHumans() }}</span>
             </div>
             <h2 class="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
-                <a href="{{ route('posts.show', $post->slug) }}" class="hover:text-blue-600 transition-colors duration-200 ease-in-out">
+                <a href="{{ route('posts.show', $post->slug) }}" class="hover:text-red-700 transition-colors duration-200 ease-in-out">
                     {{ $post->title }}
                 </a>
             </h2>
@@ -22,7 +22,7 @@
             <div class="flex flex-wrap items-center justify-between gap-2">
                 <div class="flex gap-2">
                     @foreach ($post->categories as $category)
-                        <x-posts.category-badge :category="$category" class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full" />
+                        <x-posts.category-badge :category="$category" class="bg-blue-100 text-red-700 text-xs px-2 py-1 rounded-full" />
                     @endforeach
                     <span class="text-gray-500 text-xs lg:text-sm">{{ $post->getReadingTime() }} min read</span>
                 </div>

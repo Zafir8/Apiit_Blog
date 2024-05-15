@@ -11,7 +11,7 @@
         <div class="flex items-center mb-2 gap-x-2">
             @if ($category = $post->categories()->first())
                 <!-- Category Badge Component -->
-                <x-posts.category-badge :category="$category" class="text-xs font-semibold uppercase tracking-wide text-white bg-blue-500 px-2.5 py-0.5 rounded" />
+                <x-posts.category-badge :category="$category" class="text-xs font-semibold uppercase tracking-wide text-white bg-red-700 px-2.5 py-0.5 rounded" />
             @endif
             <p class="text-xs text-gray-400">{{ $post->published_at->format('M d, Y') }}</p>
         </div>
@@ -23,7 +23,7 @@
         <p class="text-gray-600 mt-2">
             {{ Str::limit($post->excerpt, 150, '...') }}
         </p>
-        <a href="{{ route('posts.show', $post->slug) }}" class="text-blue-600 hover:underline mt-4 inline-block">
+        <a href="{{ route('posts.show', $post->slug) }}" class="text-red-700 hover:underline mt-4 inline-block">
             Continue Reading
         </a>
     </div>
