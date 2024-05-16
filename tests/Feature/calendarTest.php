@@ -26,7 +26,7 @@ it('shows the RSVP button to authenticated users', function () {
     \Log::info($response->getContent());
 
     // Assert that the RSVP button is visible
-    $response->assertSee('RSVP Now');
+    $response->assertSee('Add to Calendar');
     $response->assertSee($event->rsvp_link);
 });
 
@@ -44,6 +44,6 @@ it('hides the RSVP button from guests', function () {
     \Log::info($response->getContent());
 
     // Assert that the RSVP button is not visible
-    $response->assertDontSee('RSVP Now');
+    $response->assertDontSee('Add to Calendar');
     $response->assertDontSee($event->rsvp_link);
 });
