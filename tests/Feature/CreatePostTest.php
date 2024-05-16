@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-it('allows an admin to create a post with the approval box ticked', function () {
+it('allows an admin to create a post with the approval box ticked and message to notify the user', function () {
     // Create an admin user
     $admin = User::factory()->create(['role' => 'ADMIN']);
 

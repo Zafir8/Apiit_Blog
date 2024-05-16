@@ -37,12 +37,17 @@
 
 @yield('hero')
 @yield('about')
-
-
-
 <main class="container mx-auto px-5 flex flex-grow">
     {{ $slot }}
 </main>
+
+@yield('blogger')
+@yield('sliders')
+@yield('cards')
+
+
+
+
 
 @include('layouts.partials.footer')
 

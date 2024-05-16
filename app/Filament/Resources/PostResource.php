@@ -29,7 +29,7 @@ class PostResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
-    {  // the form for the main content
+    {
         return $form->schema([
             Section::make('Main Content')
                 ->schema([
@@ -80,9 +80,18 @@ class PostResource extends Resource
                         ->relationship('categories', 'title')
                         ->searchable(),
                 ]),
+
+            Section::make('Admin Actions')
+                ->schema([
+                    RichEditor::make('admin_message')
+                        ->label('Admin Message')
+                        ->disabled(fn () => !Auth::user()->isAdmin())
+                        ->visible(true)
+                        ->columnSpanFull(),
+                ]),
         ]);
     }
-    // table to display the posts
+
     public static function table(Table $table): Table
     {
         return $table->columns([
@@ -109,7 +118,13 @@ class PostResource extends Resource
             CheckboxColumn::make('is_approved')
                 ->label('Approved')
                 ->sortable()
-                ->visible(fn () => Auth::user()->isAdmin()),
+               ->visible(fn () => Auth::user()->isAdmin()),
+
+            TextColumn::make('admin_message')
+                ->label('Admin Message')
+                ->visible(true)  // Visible to everyone
+                ->limit(50)
+                ->html(),
         ])
             ->bulkActions([
                 DeleteBulkAction::make(),
@@ -132,7 +147,6 @@ class PostResource extends Resource
         ];
     }
 
-    // to get the current user id and ensure that only the user's research entries are displayed
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
@@ -142,3 +156,4 @@ class PostResource extends Resource
         return $query;
     }
 }
+

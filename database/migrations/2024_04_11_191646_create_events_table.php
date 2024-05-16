@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('featured')->default(false); // Whether the event is featured
             $table->string('location'); // The location of the event
             $table->string('image')->nullable(); // The image of the event
+            $table->string('rsvp_link')->nullable(); // The RSVP link of the event
 
             $table->softDeletes();
             $table->timestamps();

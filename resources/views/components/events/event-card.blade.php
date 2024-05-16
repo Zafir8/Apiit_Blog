@@ -6,9 +6,9 @@
             <img class="w-full object-cover" style="height: 100%; min-height: 200px;" src="{{ $event->getThumbnailUrl() }}" alt="{{ $event->title }}">
         </a>
         <!-- Overlay with event type on the image -->
-        <a href="#" class="absolute top-0 left-0 bg-yellow-300 text-white text-xs uppercase px-3 py-1 rounded-br-lg">
+        <h1 class="absolute top-0 left-0 bg-yellow-300 text-white text-xs uppercase px-3 py-1 rounded-br-lg">
             Event
-        </a>
+        </h1>
     </div>
 
     <!-- Content section -->
@@ -37,5 +37,12 @@
         <p class="text-gray-500 mt-2">
             <i class="fas fa-map-marker-alt"></i> {{ $event->location }}
         </p>
+
+        <!-- RSVP button, visible only if the user is logged in -->
+        @auth
+            <a href="{{ $event->rsvp_link }}" class="mt-4 inline-block bg-red-700 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-blue-700">
+                Add to Calendar
+            </a>
+        @endauth
     </div>
 </div>
