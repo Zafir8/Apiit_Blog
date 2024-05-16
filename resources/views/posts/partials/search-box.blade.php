@@ -11,7 +11,7 @@
                placeholder="Type to search..." type="text">
     </div>
     <button x-on:click="$dispatch('search', {search: query})"
-            class="mt-3 w-full bg-red-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-200 ease-in-out shadow-lg focus:outline-none focus:shadow-outline">
+            class="mt-3 w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-full transition duration-200 ease-in-out shadow-lg focus:outline-none focus:shadow-outline">
         Search
     </button>
 </div>

@@ -41,7 +41,6 @@
                                 <a href="{{ route('home') }}" class="text-base font-medium text-black hover:text-gray-900">Home</a>
                                 <a href="{{ route('posts.index') }}" class="text-base font-medium text-black hover:text-gray-900">Blogs</a>
                                 <a href="{{ route('events.index') }}" class="text-base font-medium text-black hover:text-gray-900">Events</a>
-                                <a href="{{ route('research.index') }}" class="text-base font-medium text-black hover:text-gray-900">Research</a>
                                 @auth
                                     <!-- User Profile Mobile -->
                                     <div class="space-y-1">
@@ -67,7 +66,6 @@
                 <a href="{{ route('home') }}" class="text-base font-medium text-black hover:text-red-500">Home</a>
                 <a href="{{ route('posts.index') }}" class="text-base font-medium text-black hover:text-red-500">Blogs</a>
                 <a href="{{ route('events.index') }}" class="text-base font-medium text-black hover:text-red-500">Events</a>
-                <a href="{{ route('research.index') }}" class="text-base font-medium text-black hover:text-red-500">Research</a>
                 @auth
                     <!-- Desktop Profile Dropdown -->
                     <div x-data="{ profileOpen: false }" class="relative">

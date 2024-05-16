@@ -24,8 +24,8 @@ Route::get('/blog/{post:slug}', [PostController::class, 'show'])->name('posts.sh
 Route::post('/posts/{id}/approve', [PostController::class, 'approve'])->middleware('auth');
 Route::get('/events', EventController::class)->name('events.index');
 // research route
-Route::get('/research', ResearchController::class)->name('research.index');
-Route::get('/research/{research:slug}', [ResearchController::class, 'show'])->name('research.show');
+//Route::get('/research', ResearchController::class)->name('research.index');
+//Route::get('/research/{research:slug}', [ResearchController::class, 'show'])->name('research.show');
 
 
 
