@@ -40,7 +40,7 @@
 
         <!-- RSVP button, visible only if the user is logged in -->
         @auth
-            <a href="{{ $event->rsvp_link }}" class="mt-4 inline-block bg-red-700 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-blue-700">
+            <a href="{{ $event->rsvp_link }}" class="mt-4 inline-block bg-red-700 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-red-800">
                 Add to Calendar
             </a>
         @endauth

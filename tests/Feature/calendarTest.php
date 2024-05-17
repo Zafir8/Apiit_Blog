@@ -22,8 +22,6 @@ it('shows the RSVP button to authenticated users', function () {
     // Make a request to the view that contains the event cards
     $response = $this->get(route('events.index'));
 
-    // Debugging: Output the response content
-    \Log::info($response->getContent());
 
     // Assert that the RSVP button is visible
     $response->assertSee('Add to Calendar');
