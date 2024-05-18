@@ -8,20 +8,34 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use App\Rules\EmailDomainRule;
+use Illuminate\Validation\ValidationException;
 
 class CreateNewUser implements CreatesNewUsers
 {
     use PasswordValidationRules;
 
-    public function create(array $input): User
-    {
-        $userType = $input['user_type'] ?? 'student';
-        $domains = [
-            'student' => ['students.apiit.lk'],
-            'staff' => ['apiit.lk'],
-            'alumni' => ['*'] // all domains are allowed for alumni
-        ];
+    protected $domains = [
+        'student' => ['students.apiit.lk'],
+        'staff' => ['apiit.lk'],
+        'alumni' => ['*'],
+        'club' => ['students.apiit.lk', 'apiit.lk']
+    ];
 
+    public function create(array $input)
+    {
+        $validator = Validator::make($input, $this->rules($input), $this->messages());
+
+        if ($validator->fails()) {
+            throw new ValidationException($validator);
+        }
+
+        $userAttributes = $this->extractUserAttributes($input);
+        return User::create($userAttributes);
+    }
+
+    protected function rules(array $data): array
+    {
+        $userType = $data['user_type'] ?? 'student';
         $rules = [
             'name' => ['required', 'string', 'max:255'],
             'email' => [
@@ -29,51 +43,73 @@ class CreateNewUser implements CreatesNewUsers
                 'string',
                 'email',
                 'max:255',
-                'unique:users',
-                new EmailDomainRule($domains[$userType], $userType),
+                'unique:users,email',
+                new EmailDomainRule($this->domains[$userType], $userType),
             ],
             'password' => $this->passwordRules(),
-            'user_type' => ['required', 'in:student,staff,alumni'],
-            'school' => ['required_if:user_type,!=,alumni', 'string', 'max:255'],
+            'user_type' => ['required', 'in:student,staff,alumni,club'],
             'terms' => ['accepted', 'required'],
+            'school' => $userType === 'student' ? ['required', 'string', 'max:255'] : [],
+            'degree' => $userType === 'student' ? ['nullable', 'string', 'max:255'] : ['nullable'],
+            'level' => $userType === 'student' ? ['nullable', 'string', 'max:255'] : ['nullable'],
         ];
 
-        // Conditionally apply rules only for students
         if ($userType === 'student') {
-            $rules['cb_number'] = ['required', 'string'];
-            $rules['degree'] = ['required', 'string'];
-            $rules['level'] = ['required', 'string'];
+            $rules['cb_number'] = [
+                'required',
+                'string',
+                'regex:/^cb\d{6}$/i',
+                'unique:users,cb_number'
+            ];
         }
 
-        // Conditionally apply nic_or_passport rules only for alumni
         if ($userType === 'alumni') {
             $rules['nic_or_passport'] = [
-                'required', 'string',
+                'required',
+                'string',
+                'unique:users,nic_or_passport',
                 function ($attribute, $value, $fail) {
                     if (!DB::table('allowed_users')->where('NIC_or_passport', $value)->exists()) {
-
-                        $fail('The NIC or Passport number with the given name is not recognized or not allowed.');
+                        $fail('The NIC or Passport number is not recognized.');
                     }
                 },
             ];
         }
 
-        Validator::make($input, $rules)->validate();
+        return $rules;
+    }
 
-        $userAttributes = [
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
-            'user_type' => $userType,
-            'school' => $input['school'] ?? null, // Nullable for alumni
-            'cb_number' => $input['cb_number'] ?? null,
-            'degree' => $input['degree'] ?? null,
-            'level' => $input['level'] ?? null,
-            'nic_or_passport' => $input['nic_or_passport'] ?? null, // Nullable for non-alumni
+    protected function messages(): array
+    {
+        return [
+            'cb_number.unique' => 'The CB number has already been registered.',
+            'cb_number.regex' => 'The CB number must be in the format "cbXXXXXX" where X are digits.',
+            'nic_or_passport.unique' => 'The NIC or Passport number has already been registered.',
+            'email.unique' => 'The email address is already in use.',
         ];
+    }
 
-        $user = User::create($userAttributes);
+    protected function extractUserAttributes(array $data): array
+    {
+        return [
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'user_type' => $data['user_type'],
+            'school' => $data['school'] ?? null,
+            'cb_number' => $data['cb_number'] ?? null,
+            'nic_or_passport' => $data['nic_or_passport'] ?? null,
+            'degree' => $data['degree'] ?? null,
+            'level' => $data['level'] ?? null,
+            'role' => $this->determineUserRole($data['user_type']),
+        ];
+    }
 
-        return $user;
+    protected function determineUserRole($userType)
+    {
+        return match ($userType) {
+            'club' => User::ROLE_CLUB,
+            default => User::ROLE_USER,
+        };
     }
 }

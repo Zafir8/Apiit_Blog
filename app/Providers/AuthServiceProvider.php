@@ -26,7 +26,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // Define a gate for Filament access
         Gate::define('access-filament', function ($user) {
-            return $user->isAdmin() || $user->isBlogger(); // Adjust according to your needs
+            return $user->isAdmin() || $user->isBlogger() || $user->isClub();
         });
     }
 

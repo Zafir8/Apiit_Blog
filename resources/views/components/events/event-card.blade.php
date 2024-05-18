@@ -1,10 +1,10 @@
 <div class="max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden md:max-w-lg">
     <!-- Image section with dynamic sizing -->
     <div class="relative">
-        <a href="#">
+        <div>
             <!-- Adjust the height or remove the fixed height to allow the image to scale naturally -->
             <img class="w-full object-cover" style="height: 100%; min-height: 200px;" src="{{ $event->getThumbnailUrl() }}" alt="{{ $event->title }}">
-        </a>
+        </div>
         <!-- Overlay with event type on the image -->
         <h1 class="absolute top-0 left-0 bg-yellow-300 text-white text-xs uppercase px-3 py-1 rounded-br-lg">
             Event
@@ -14,9 +14,9 @@
     <!-- Content section -->
     <div class="p-4">
         <!-- Event title -->
-        <a href="#" class="block text-lg leading-tight font-medium text-black hover:underline">
+        <h1 class="block text-lg leading-tight font-medium text-black">
             {{ $event->title }}
-        </a>
+        </h1>
         <!-- Event date and other details -->
         <div class="flex items-center text-sm text-gray-500 mt-2 space-x-4">
             <span><i class="fas fa-calendar-alt"></i> {{ $event->start_date->format('M d, Y') }}</span>
