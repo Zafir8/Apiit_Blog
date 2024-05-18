@@ -72,6 +72,7 @@ class PostResource extends Resource
                         ->relationship('author', 'name')
                         ->options([Auth::id() => Auth::user()->name])
                         ->default(Auth::id())
+                        ->searchable()
                         ->required(),
 
                     Select::make('categories')

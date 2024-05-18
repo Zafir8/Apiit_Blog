@@ -72,7 +72,9 @@ class EventsResource extends Resource
                         ->relationship('author', 'name')
                         ->options([Auth::id() => Auth::user()->name])
                         ->default(Auth::id())
+                        ->searchable()
                         ->required(),
+
                 ]),
         ]);
     }
@@ -108,6 +110,7 @@ class EventsResource extends Resource
             Columns\TextColumn::make('author.name')
                 ->searchable()
                 ->sortable(),
+
 
             Columns\TextColumn::make('rsvp_link') // Adding rsvp_link column
             ->label('RSVP Link')
