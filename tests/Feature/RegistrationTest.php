@@ -112,6 +112,8 @@ test('alumni cannot register with an unrecognised NIC or passport number', funct
     ]);
 
     $response->assertSessionHasErrors('nic_or_passport');
+
+
 });
 
 

@@ -43,7 +43,7 @@
                                     <a href="{{ route('events.index') }}" class="text-base font-medium text-black hover:text-gray-900">Events</a>
                                     @auth
                                         @if(auth()->user()->canAccessPanel(new \Filament\Panel()))
-                                            <a href="/admin" class="text-base font-medium text-black hover:text-gray-900">Dashboard</a>
+                                            <a href="/admin" class="text-base font-medium text-black hover:text-gray-900">Compose</a>
                                         @endif
                                         <a href="{{ route('profile.show') }}" class="text-base font-medium text-black hover:text-gray-900">Profile</a>
                                         <span class="text-base font-medium text-black">Hello, {{ Auth::user()->name }}</span>

@@ -11,7 +11,6 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <!-- Dropdown for selecting user type -->
             <div class="mb-4">
                 <label for="user_type" class="block text-sm font-medium text-gray-700">Register as:</label>
                 <select id="user_type" name="user_type" class="block mt-1 w-full" onchange="toggleUserFields()">
@@ -19,43 +18,42 @@
                     <option value="student">Student</option>
                     <option value="staff">Staff</option>
                     <option value="alumni">Alumni</option>
+                    <option value="club">Club</option>
                 </select>
             </div>
 
-            <!-- Container for all dynamic fields -->
             <div id="registrationFields" style="display: none;">
-
-                <!-- Alumni specific fields -->
                 <div id="alumniFields" style="display: none;">
                     <x-label for="nic_or_passport" :value="__('NIC or Passport')" />
                     <x-input id="nic_or_passport" class="block mt-1 w-full" type="text" name="nic_or_passport" :value="old('nic_or_passport')" />
                 </div>
 
-                <!-- Student specific fields -->
                 <div id="studentFields" style="display: none;">
                     <x-label for="cb_number" :value="__('CB Number')" />
                     <x-input id="cb_number" class="block mt-1 w-full" type="text" name="cb_number" :value="old('cb_number')" />
 
+                    <x-label for="school" :value="__('School')" />
+                    <select id="school" name="school" class="block mt-4 w-full" onchange="updateDegreeDropdown()">
+                        <option value="">Select</option>
+                        <option value="computing">Computing</option>
+                        <option value="business">Business</option>
+                        <option value="law">Law</option>
+                    </select>
+
                     <x-label for="degree" :value="__('Degree')" />
-                    <x-input id="degree" class="block mt-1 w-full" type="text" name="degree" :value="old('degree')" />
+                    <select id="degree" name="degree" class="block mt-1 w-full">
+                    </select>
 
                     <x-label for="level" :value="__('Level')" />
                     <select id="level" name="level" class="block mt-1 w-full">
+                        <option value="">Select</option>
+                        <option value="Foundation">Foundation </option>
                         <option value="4">Level 4</option>
                         <option value="5">Level 5</option>
                         <option value="6">Level 6</option>
                     </select>
                 </div>
 
-                <!-- School field for all user types -->
-                <x-label for="school" :value="__('School')" />
-                <select id="school" name="school" class="block mt-4 w-full" required>
-                    <option value="computing">Computing</option>
-                    <option value="business">Business</option>
-                    <option value="law">Law</option>
-                </select>
-
-                <!-- Common registration fields -->
                 <x-label for="name" :value="__('Name')" />
                 <x-input id="name" class="block mt-4 w-full" type="text" name="name" :value="old('name')" required autofocus />
 
@@ -75,8 +73,8 @@
                                 <x-checkbox name="terms" id="terms" />
                                 <div class="ml-2">
                                     {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
                                     ]) !!}
                                 </div>
                             </div>
@@ -105,16 +103,57 @@
         var alumniFields = document.getElementById('alumniFields');
         var studentFields = document.getElementById('studentFields');
 
-        // Hide all fields initially
         registrationFields.style.display = 'none';
         alumniFields.style.display = 'none';
         studentFields.style.display = 'none';
 
-        // Display fields based on the selected user type
-        if (userType === 'alumni' || userType === 'student' || userType === 'staff') {
+        if (userType === 'alumni' || userType === 'student' || userType === 'staff' || userType === 'club') {
             registrationFields.style.display = 'block';
             alumniFields.style.display = userType === 'alumni' ? 'block' : 'none';
             studentFields.style.display = userType === 'student' ? 'block' : 'none';
+        }
+    }
+
+    function updateDegreeDropdown() {
+        var school = document.getElementById('school').value;
+        var degreeDropdown = document.getElementById('degree');
+        degreeDropdown.innerHTML = '';
+
+        var options = {
+            'computing': [
+                'BEng (Hons) Software Engineering',
+                'BSc (Hons) Computer Science',
+                'BSc (Hons) Computer Science (Cloud Technologies)',
+                'BSc (Hons) Computer Science (Internet and Web Management)',
+                'BSc (Hons) Computer Science (Network Computing)',
+                'BSc (Hons) Computer Science (Software Development)',
+                'BSc (Hons) Cyber Security'
+            ],
+            'business': [
+                'BSc (Hons) Business Management',
+                'BSc (Hons) Business Management (Innovation and Entrepreneurship)',
+                'BSc (Hons) Business Management (Human Resource Management)',
+                'BSc (Hons) Business Management (Sustainability)',
+                'BSc (Hons) International Business Management',
+                'BSc (Hons) Digital and Social Media Marketing',
+                'BSc (Hons) Accounting and Finance',
+                'NCUK International Year One in Business Management'
+            ],
+            'law': [
+                'LLB (HONS) Law',
+                'LLB (HONS) LAW – Digital',
+                'LLB (HONS) LAW (Part Time)',
+                'NCUK International Year One in Law'
+            ]
+        };
+
+        if (options[school]) {
+            options[school].forEach(function(degree) {
+                var option = document.createElement('option');
+                option.value = degree;
+                option.text = degree;
+                degreeDropdown.appendChild(option);
+            });
         }
     }
 </script>

@@ -71,7 +71,6 @@ class EventsResource extends Resource
                     Select::make('user_id')
                         ->relationship('author', 'name')
                         ->options([Auth::id() => Auth::user()->name])
-                        ->searchable()
                         ->default(Auth::id())
                         ->required(),
                 ]),

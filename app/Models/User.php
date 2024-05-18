@@ -33,16 +33,19 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
 
     const ROLE_USER = 'USER';
 
+    const ROLE_CLUB = 'CLUB';
+
 
     const ROLES= [
         self::ROLE_ADMIN => 'Admin',
         self::ROLE_BLOGGER => 'Blogger',
         self::ROLE_USER => 'User',
+        self::ROLE_CLUB => 'Club'
     ];
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->isAdmin() || $this->isBlogger();
+        return $this->isAdmin() || $this->isBlogger() || $this->isClub();
     }
 
     public function isAdmin()
@@ -54,6 +57,12 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
     public function isBlogger()
     {
         return $this->role === self::ROLE_BLOGGER;
+
+    }
+
+    public function isClub()
+    {
+        return $this->role === self::ROLE_CLUB;
 
     }
 
