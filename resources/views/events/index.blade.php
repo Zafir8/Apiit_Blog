@@ -1,13 +1,17 @@
 <x-app-layout>
     @section('hero')
         <div class="w-full py-32 bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 relative">
-            <img src="{{ asset('https://i.pinimg.com/736x/79/5c/27/795c273cdbeb7e6e01ce037ed5ab7e36.jpg') }}" alt="Hero" class="absolute inset-0 object-cover w-full h-full" />
+            <!-- Image Container with Overlay -->
+            <div class="absolute inset-0 w-full h-full">
+                <img src="{{ asset('images/DALL·E 2024-05-19 03.51.49 - Create a vibrant red digital poster featuring a realistic photo of diverse university students at a lively event. The students should be of various et.webp') }}" alt="Hero" class="object-cover w-full h-full">
+                <!-- Dark Shadow Overlay -->
+                <div class="absolute inset-0 bg-black opacity-50"></div>
+            </div>
 
-
-            <div class="container mx-auto px-4 relative">
+            <div class="container mx-auto px-4 relative z-10">
                 <div class="flex flex-col items-center justify-center text-center">
                     <h1 class="text-5xl md:text-6xl font-bold text-white tracking-tight">
-                        APIIT<span class="text-red-700"> Events</span>
+                        APIIT<span class="text-red-600"> Events</span>
                     </h1>
                     <p class="mt-2 text-lg md:text-2xl text-white">
                         Explore the latest updates and insights at APIIT.
@@ -16,7 +20,6 @@
             </div>
         </div>
     @endsection
-
 
 
     <div class="mb-10 w-full">
