@@ -202,9 +202,9 @@ Connect Space is a digital hub for collaboration, innovation, and networking, of
                             <p class="text-2xl font-bold">FOCUS ROOM</p>
                         </div>
                         <div class="py-5 bg-black text-white rounded-b-lg">
-                            <p>Finding difficulty with</p>
-                            <p>coursework</p>
-                            <p>Share it with us</p>
+                            <p>Require assistance from Alumni? </p>
+                            <p>Alumni is there to help you!</p>
+                            <p>Fill out this form! </p>
                             <br>
                             <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vnsShoAUrkevNR_ModMj5MRdGLgV-01LkdjXpXD5ZmhUNExBVU8zNzdOVkVPSzJMRkZSTURCQTNDNi4u" class="mt-4 px-4 py-2 uppercase rounded bg-white text-black font-medium hover:bg-red-500 hover:text-white">View Form</a>
                         </div>
