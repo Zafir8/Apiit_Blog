@@ -8,14 +8,14 @@
                       cols="30" rows="5"></textarea>
             <div class="flex justify-end p-4 bg-gray-50 rounded-b-lg">
                 <button wire:click="postComment"
-                        class="px-5 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        class="px-5 py-2 text-sm font-semibold text-white bg-red-800 rounded-lg hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                     Post Comment
                 </button>
             </div>
         </div>
     @else
         <div class="py-4 text-center">
-            <a wire:navigate class="text-blue-600 hover:text-blue-800 hover:underline" href="{{ route('login') }}">Log in to post comments</a>
+            <a wire:navigate class="text-red-700 hover:underline" href="{{ route('login') }}">Log in to post comments</a>
         </div>
     @endauth
     <div class="space-y-4 mt-5 user-comments">
