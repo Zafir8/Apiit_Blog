@@ -32,108 +32,101 @@
         </div>
     </div>
 
-    @section('blogger')
-    <div class="bg-black">
+        @section('blogger')
+            <div class="bg-black">
+                <section id="features"
+                         class="relative block px-6 py-10 md:py-20 md:px-10 border-t border-b border-neutral-900 bg-neutral-900/30">
 
-        <section id="features"
-            class="relative block px-6 py-10 md:py-20 md:px-10  border-t border-b border-neutral-900 bg-neutral-900/30">
-
-
-            <div class="relative mx-auto max-w-5xl text-center">
-                <span class="text-gray-400 my-3 flex items-center justify-center font-medium uppercase tracking-wider">
+                    <div class="relative mx-auto max-w-5xl text-center">
+            <span class="text-gray-400 my-3 flex items-center justify-center font-medium uppercase tracking-wider">
                 Become a blogger at
-                </span>
-                <h2
-                    class="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
-                    CONNECT SPACE
-                </h2>
-                <p
-                    class="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">
-                    Are you passionate about sharing your knowledge, experiences, and perspectives with the world? Do you have a unique voice and valuable insights that you believe others would benefit from? If so, then becoming a blogger might just be the perfect avenue for you to explore!
-
-
-                </p>
-            </div>
-
-
-            <div class="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
-                <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
-                    <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
-                        style="background-image: linear-gradient(rgb(184,53,58) 0%,rgb(163,20,32) 100%); border-color: rgb(218,11,46);">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-color-swatch" width="24"
-                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2"></path>
-                            <path d="M13 7.35l-2 -2a2 2 0 0 0 -2.828 0l-2.828 2.828a2 2 0 0 0 0 2.828l9 9"></path>
-                            <path d="M7.3 13h-2.3a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h12"></path>
-                            <line x1="17" y1="17" x2="17" y2="17.01"></line>
-                        </svg>
+            </span>
+                        <h2 class="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
+                            CONNECT SPACE
+                        </h2>
+                        <p class="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">
+                            Are you passionate about sharing your knowledge, experiences, and perspectives with the world? Do you have a unique voice and valuable insights that you believe others would benefit from? If so, then becoming a blogger might just be the perfect avenue for you to explore!
+                        </p>
                     </div>
-                    <h3 class="mt-6 text-gray-400">Eligibility</h3>
-                    <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
-                        Only individuals who are currently affiliated with APIIT as staff, lecturers, students, or alumni are eligible to become a blogger.
 
+                    <div class="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
+                        <!-- Card with hover effect and equal height -->
+                        <div class="transform transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl flex flex-col">
+                            <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow flex-grow">
+                                <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border"
+                                     style="background-image: linear-gradient(rgb(184,53,58) 0%,rgb(163,20,32) 100%); border-color: rgb(218,11,46);">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-color-swatch" width="24"
+                                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                         stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2"></path>
+                                        <path d="M13 7.35l-2 -2a2 2 0 0 0 -2.828 0l-2.828 2.828a2 2 0 0 0 0 2.828l9 9"></path>
+                                        <path d="M7.3 13h-2.3a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h12"></path>
+                                        <line x1="17" y1="17" x2="17" y2="17.01"></line>
+                                    </svg>
+                                </div>
+                                <h3 class="mt-6 text-gray-400">Eligibility</h3>
+                                <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
+                                    Only individuals who are currently affiliated with APIIT as staff, lecturers, students, or alumni are eligible to become a blogger.
+                                </p>
+                            </div>
+                        </div>
 
-                    </p>
-                </div>
+                        <!-- Card with hover effect and equal height -->
+                        <div class="transform transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl flex flex-col">
+                            <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow flex-grow">
+                                <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border"
+                                     style="background-image: linear-gradient(rgb(184, 33, 58) 10%, rgb(163, 20, 32) 10%); border-color: rgb(218, 11, 46);">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bolt" width="24"
+                                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                         stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3"></polyline>
+                                    </svg>
+                                </div>
+                                <h3 class="mt-6 text-gray-400">Opportunity Awaits</h3>
+                                <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
+                                    Join a vibrant community of bloggers and readers who share your interests. Engage in discussions, make new friends, and build a network.
+                                </p>
+                            </div>
+                        </div>
 
-
-                <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
-                    <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
-                        style="background-image: linear-gradient(rgb(184, 33, 58) 10%, rgb(163, 20, 32) 10%); border-color: rgb(218, 11, 46);">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bolt" width="24"
-                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3"></polyline>
-                        </svg>
+                        <!-- Card with hover effect and equal height -->
+                        <div class="transform transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl flex flex-col">
+                            <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow flex-grow">
+                                <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border"
+                                     style="background-image: linear-gradient(rgb(184, 33, 58) 0%, rgb(163, 20, 32) 100%); border-color: rgb(218, 11, 46);">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tools" width="24"
+                                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                         stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4"></path>
+                                        <line x1="14.5" y1="5.5" x2="18.5" y2="9.5"></line>
+                                        <polyline points="12 8 7 3 3 7 8 12"></polyline>
+                                        <line x1="7" y1="8" x2="5.5" y2="9.5"></line>
+                                        <polyline points="16 12 21 17 17 21 12 16"></polyline>
+                                        <line x1="16" y1="17" x2="14.5" y2="18.5"></line>
+                                    </svg>
+                                </div>
+                                <h3 class="mt-6 text-gray-400">How to become a blogger?</h3>
+                                <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
+                                    Fill the form provided at the bottom of the page and get verified as a blogger.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="mt-6 text-gray-400">Opportunity Awaits</h3>
-                    <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
-                        Join a vibrant community of bloggers and readers who share your interests. Engage in discussions, make new friends, and build a network.
 
-
-                    </p>
-                </div>
-
-
-                <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
-                    <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
-                        style="background-image: linear-gradient(rgb(184, 33, 58) 0%, rgb(163, 20, 32) 100%); border-color: rgb(218, 11, 46);">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tools" width="24"
-                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4"></path>
-                            <line x1="14.5" y1="5.5" x2="18.5" y2="9.5"></line>
-                            <polyline points="12 8 7 3 3 7 8 12"></polyline>
-                            <line x1="7" y1="8" x2="5.5" y2="9.5"></line>
-                            <polyline points="16 12 21 17 17 21 12 16"></polyline>
-                            <line x1="16" y1="17" x2="14.5" y2="18.5"></line>
-                        </svg>
+                    <div class="absolute bottom-0 left-0 z-0 h-1/3 w-full border-b"
+                         style="background-image: linear-gradient(to right top, rgba(79, 70, 229, 0.2) 0%, transparent 50%, transparent 100%); border-color: rgba(92, 79, 240, 0.2);">
                     </div>
-                    <h3 class="mt-6 text-gray-400">How to become a blogger?</h3>
-                    <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
-                        Fill the form provided at the bottom of the page and get verified as a blogger.
-                    </p>
-                </div>
-
-
+                    <div class="absolute bottom-0 right-0 z-0 h-1/3 w-full"
+                         style="background-image: linear-gradient(to left top, rgba(220, 38, 38, 0.2) 0%, transparent 50%, transparent 100%); border-color: rgba(92, 79, 240, 0.2);">
+                    </div>
+                </section>
             </div>
+        @endsection
 
-            <div class="absolute bottom-0 left-0 z-0 h-1/3 w-full border-b"
-                style="background-image: linear-gradient(to right top, rgba(79, 70, 229, 0.2) 0%, transparent 50%, transparent 100%); border-color: rgba(92, 79, 240, 0.2);">
-            </div>
-            <div class="absolute bottom-0 right-0 z-0 h-1/3 w-full"
-                style="background-image: linear-gradient(to left top, rgba(220, 38, 38, 0.2) 0%, transparent 50%, transparent 100%); border-color: rgba(92, 79, 240, 0.2);">
-            </div>
-
-        </section>
-    </div>
-    @endsection
-
- @section('sliders')
+    @section('sliders')
 
 <div class="container my-24 mx-auto md:px-6">
   <!-- Section: Design Block -->

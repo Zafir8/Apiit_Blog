@@ -1,18 +1,21 @@
-<footer class="text-sm flex flex-col sm:flex-row items-center border-t border-gray-100 justify-between py-4 px-2 sm:px-4">
-    <!-- Larger Image and Copyright with responsive adjustments -->
-    <div class="flex items-center justify-center sm:justify-start mb-4 sm:mb-0">
-        <img src="https://apiit.lk/wp-content/uploads/2023/05/apiit-logo_Courses.png" alt="Copyright" class="h-8 sm:h-10 w-auto mx-2">
-        <span class="text-gray-500 text-center sm:text-left">&copy; 2024 Apiit Lanka. All rights reserved.</span>
+<footer class="text-lg flex flex-col items-center justify-between py-8 px-6 bg-white border-t border-gray-300 sm:flex-row sm:px-10">
+    <!-- Logo and Copyright Centered -->
+    <div class="text-center w-full mb-8 sm:mb-0 sm:w-auto sm:flex sm:items-center sm:justify-start">
+        <div class="flex justify-center sm:justify-start w-full sm:w-auto">
+            <img src="https://apiit.lk/wp-content/uploads/2023/05/apiit-logo_Courses.png" alt="Copyright" class="h-12 sm:h-14 w-auto mx-3">
+        </div>
+        <span class="text-gray-800">&copy; 2024 Apiit Lanka. All rights reserved.</span>
     </div>
 
-    <!-- Smaller Links with improved alignment -->
-    <div class="flex flex-wrap justify-center sm:justify-end space-x-0 sm:space-x-4 mt-2 sm:mt-0">
-        <a class="text-gray-500 hover:text-blue-950 text-sm px-2 py-1" href="#">About Us</a>
-        <a class="text-gray-500 hover:text-blue-950 text-sm px-2 py-1" href="#">Help</a>
-        <a class="text-gray-500 hover:text-blue-950 text-sm px-2 py-1" href="#">Login</a>
-        <a class="text-gray-500 hover:text-blue-950 text-sm px-2 py-1" href="#">Explore</a>
-    </div>
+    <!-- Navigation Links in a more compact layout -->
+    <nav class="w-full sm:w-auto sm:flex sm:justify-end sm:items-center">
+        <div class="grid grid-cols-2 gap-4 mt-6 sm:mt-0 sm:flex sm:space-x-8">
+            <a class="text-gray-800 hover:text-red-600 px-4 py-3" href="#">About Us</a>
+            <a class="text-gray-800 hover:text-red-600 px-4 py-3" href="#">Help</a>
+            <a class="text-gray-800 hover:text-red-600 px-4 py-3" href="#">Login</a>
+            <a class="text-gray-800 hover:text-red-600 px-4 py-3" href="#">Explore</a>
+        </div>
+    </nav>
 </footer>
-
 
 
