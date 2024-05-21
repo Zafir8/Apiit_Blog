@@ -1,7 +1,7 @@
 <x-app-layout>
     @section('hero')
         <div class="flex items-center justify-center bg-cover bg-center md:bg-top lg:bg-center min-h-screen"
-             style="background-image: url('{{ asset('images/DALL·E 2024-05-18 14.59.42 - A professional digital poster featuring a young woman in graduation attire. She is Caucasian, with light brown hair and a warm smile, wearing a black .webp') }}');">
+             style="background-image: url('{{ asset('images/APIIT-BLOG-COVER.png') }}');">
         </div>
     @endsection
 
