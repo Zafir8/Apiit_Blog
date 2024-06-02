@@ -1,7 +1,7 @@
 <x-app-layout>
     @section('hero')
         <div class="flex items-center justify-center bg-cover bg-center md:bg-top lg:bg-center min-h-screen"
-             style="background-image: url('{{ asset('images/APIIT-BLOG-COVER.png') }}');">
+             style="background-image: url('{{ asset('images/hello.webp') }}');">
         </div>
     @endsection
 
